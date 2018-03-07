@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
 import Testing from "./testing";
 import Banner from "./banner.js";
 import Login from './components/login.js';
+import Logintest from './components/logintest.js';
+import decode from 'jwt-decode';
 import "./style.css";
 
 class App extends Component {
@@ -22,6 +24,36 @@ class App extends Component {
     console.log(this.state);
   }
 
+  // checkAuth = () => {
+  //   const token = localStorage.getItem('token');
+  //   const refreshToken = localStorage.getItem('refreshToken');
+  //   if (!token || !refreshToken) {
+  //     return false;
+  //   }
+  //   try {
+  //     const { exp } = decode(refreshToken);
+  //     if (exp < new Date().getTime() / 1000) {
+  //       return false;
+  //     }
+
+  //   } catch (e) {
+  //     return false; 
+  //   }
+
+
+  //   return true;
+  // }
+
+  // AuthRoute = ({ component: Component, ...rest }) => (
+  //   <Route {...rest} render={props => (
+  //     checkAuth() ? (
+  //       <Component {...props} />
+  //     ) : (
+  //       <Redirect to={{ pathname: '/login' }} />
+  //     ) 
+  //   )} />
+  // )
+
 
 
   render() {
@@ -39,6 +71,7 @@ class App extends Component {
           </Switch>	      
 
         <Testing />
+        <Logintest />
       </div>
       </Router>
     );
