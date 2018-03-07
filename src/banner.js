@@ -14,6 +14,7 @@ class Banner extends Component {
       <div className="rowbanner">
         
           <Link to="/"> Home </Link>
+          <Link to="/class"> Classes </Link>
           <Link to="/students"> Students </Link>
           <Link to="/login"> Login </Link>
           <Link to="/logout"> Logout </Link>

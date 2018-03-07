@@ -18,6 +18,7 @@ import Selectedstudent from './components/selectedstudent.js';
 
 import decode from "jwt-decode";
 import "./style.css";
+import SelectedStudent from "./components/selectedstudent.js";
 
 class App extends Component {
   constructor() {
@@ -58,13 +59,15 @@ class App extends Component {
       <Router>
         <div className="App">
           <Banner />
-          <Selectedstudent />
           {this.state.render === 'Home' && <Home />}
           <Route
             path="/login"
             render={props => <Login change={this.onChangeHandler} click={this.onClickHandler} />}
           />
           <Route path="/logout" component = {Home} />
+          <Route path="/class" component = {Selectedclass} />
+          <Route path="/students" component = {SelectedStudent} />
+          {/* <Selectedstudent /> */}
           <Switch />
           <Testing />
         </div>
