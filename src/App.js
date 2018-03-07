@@ -1,10 +1,22 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
+import Home from './components/home.js';
+import axios from "axios";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  Redirect
+} from "react-router-dom";
 import Testing from "./testing";
 import Banner from "./banner.js";
-import Login from './components/login.js';
-import Logintest from './components/logintest.js';
-import decode from 'jwt-decode';
+import Login from "./components/login.js";
+import Logintest from "./components/logintest.js";
+import Classtracker from './components/classtracker.js';
+import Selectedclass from './components/selectedclass.js';
+import Selectedstudent from './components/selectedstudent.js';
+
+import decode from "jwt-decode";
 import "./style.css";
 
 class App extends Component {
@@ -13,7 +25,7 @@ class App extends Component {
     this.state = {};
 
     this.onChangeHandler = this.onChangeHandler.bind(this);
-  
+    this.onClickHandler = this.onClickHandler.bind(this);
   }
 
   onChangeHandler(e) {
@@ -23,60 +35,42 @@ class App extends Component {
 
     console.log(this.state);
   }
-
-  // checkAuth = () => {
-  //   const token = localStorage.getItem('token');
-  //   const refreshToken = localStorage.getItem('refreshToken');
-  //   if (!token || !refreshToken) {
-  //     return false;
-  //   }
-  //   try {
-  //     const { exp } = decode(refreshToken);
-  //     if (exp < new Date().getTime() / 1000) {
-  //       return false;
-  //     }
-
-  //   } catch (e) {
-  //     return false; 
-  //   }
-
-
-  //   return true;
-  // }
-
-  // AuthRoute = ({ component: Component, ...rest }) => (
-  //   <Route {...rest} render={props => (
-  //     checkAuth() ? (
-  //       <Component {...props} />
-  //     ) : (
-  //       <Redirect to={{ pathname: '/login' }} />
-  //     ) 
-  //   )} />
-  // )
-
-
+  
+  onClickHandler(e) {
+    if (e.target.name === "signin") {
+        //axios get /
+        axios.get('/')
+        .then(()=> {
+          this.setState({
+            render: "Home"
+          })
+        })
+      console.log('signing in');
+    } else if (e.target.name === 'create') {
+       //axios request to controller to handle create
+      console.log('creating');
+    }
+  }
+  
 
   render() {
     return (
       <Router>
-      <div className="App">
-        <Banner />
-      <Route path="/login" render={props => (
-                <Login
-                  change={this.onChangeHandler}
-                />
-              )}
-              />
-        <Switch>
-          </Switch>	      
-
-        <Testing />
-        <Logintest />
-      </div>
+        <div className="App">
+          <Banner />
+          <Selectedstudent />
+          {this.state.render === 'Home' && <Home />}
+          <Route
+            path="/login"
+            render={props => <Login change={this.onChangeHandler} click={this.onClickHandler} />}
+          />
+          <Route path="/logout" component = {Home} />
+          <Switch />
+          <Testing />
+        </div>
       </Router>
     );
   }
 }
 
 export default App;
-

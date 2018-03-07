@@ -11,11 +11,12 @@ class Banner extends Component {
 
   render() {
     return (
-      <div className="row">
+      <div className="rowbanner">
         
           <Link to="/"> Home </Link>
           <Link to="/students"> Students </Link>
           <Link to="/login"> Login </Link>
+          <Link to="/logout"> Logout </Link>
           
       
       </div>

@@ -4,7 +4,7 @@ body {
   font-family: sans-serif;
 }
 
-.row {
+.rowbanner {
   border: solid rgb(11, 22, 241);
   background-image: url("https://intownphotography.files.wordpress.com/2013/08/3119999-545079-abstract-light-blue-hand-drawn-pattern-waves-background-seamless-pattern-can-be-used-for-wallpaper-pattern-fills-web-page-background-surface-textures.jpeg");
   background-attachment: fixed;
@@ -16,4 +16,18 @@ body {
   /* top: 20px; */
   width: 100%;
   text-align: center;
+}
+
+.row {
+  padding: 2%;
+}
+
+.class-tracker-col {
+  height: 80vh;
+  border: black solid 2px;
+}
+
+.selected-class-col {
+  height: 40vh;
+  border: black solid 2px;
 }
