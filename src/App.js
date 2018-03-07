@@ -15,6 +15,7 @@ import Logintest from "./components/logintest.js";
 import Classtracker from './components/classtracker.js';
 import Selectedclass from './components/selectedclass.js';
 import Selectedstudent from './components/selectedstudent.js';
+import View from './View.js'
 
 import decode from "jwt-decode";
 import "./style.css";
@@ -23,7 +24,10 @@ import SelectedStudent from "./components/selectedstudent.js";
 class App extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      renderpath: "login",
+      rendercomponent: "Home"
+    };
 
     this.onChangeHandler = this.onChangeHandler.bind(this);
     this.onClickHandler = this.onClickHandler.bind(this);
@@ -68,6 +72,7 @@ class App extends Component {
           <Route path="/class" component = {Selectedclass} />
           <Route path="/students" component = {SelectedStudent} />
           {/* <Selectedstudent /> */}
+          <View renderpath={this.state.renderpath} rendercomponent={this.state.rendercomponent} />
           <Switch />
           <Testing />
         </div>
