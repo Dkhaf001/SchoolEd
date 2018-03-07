@@ -25,8 +25,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      renderpath: "login",
-      rendercomponent: "Home"
+      auth: "false",
     };
 
     this.onChangeHandler = this.onChangeHandler.bind(this);
@@ -47,7 +46,7 @@ class App extends Component {
         axios.get('/')
         .then(()=> {
           this.setState({
-            render: "Home"
+            auth: "true"
           })
         })
       console.log('signing in');
@@ -56,14 +55,19 @@ class App extends Component {
       console.log('creating');
     }
   }
+
   
+
+  /* {this.state.render === 'Home' && <Home />} */
+
+
 
   render() {
     return (
       <Router>
         <div className="App">
           <Banner />
-          {this.state.render === 'Home' && <Home />}
+          <Switch>
           <Route
             path="/login"
             render={props => <Login change={this.onChangeHandler} click={this.onClickHandler} />}
@@ -71,9 +75,7 @@ class App extends Component {
           <Route path="/logout" component = {Home} />
           <Route path="/class" component = {Selectedclass} />
           <Route path="/students" component = {SelectedStudent} />
-          {/* <Selectedstudent /> */}
-          <View renderpath={this.state.renderpath} rendercomponent={this.state.rendercomponent} />
-          <Switch />
+          </Switch>
           <Testing />
         </div>
       </Router>
