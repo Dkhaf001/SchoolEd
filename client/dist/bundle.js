@@ -20482,10 +20482,6 @@ var _login = __webpack_require__(42);
 
 var _login2 = _interopRequireDefault(_login);
 
-var _logintest = __webpack_require__(106);
-
-var _logintest2 = _interopRequireDefault(_logintest);
-
 var _classtracker = __webpack_require__(107);
 
 var _classtracker2 = _interopRequireDefault(_classtracker);
@@ -20593,7 +20589,7 @@ var App = function (_Component) {
         _react2.default.createElement(
           "div",
           { className: "App" },
-          _react2.default.createElement(_banner2.default, null),
+          _react2.default.createElement(_banner2.default, { onClick: this.onClickHandler }),
           _react2.default.createElement(
             _reactRouterDom.Switch,
             null,
@@ -25304,10 +25300,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Banner = function (_Component) {
   _inherits(Banner, _Component);
 
-  function Banner() {
+  function Banner(props) {
     _classCallCheck(this, Banner);
 
-    return _possibleConstructorReturn(this, (Banner.__proto__ || Object.getPrototypeOf(Banner)).call(this));
+    return _possibleConstructorReturn(this, (Banner.__proto__ || Object.getPrototypeOf(Banner)).call(this, props));
   }
 
   _createClass(Banner, [{
@@ -25337,10 +25333,11 @@ var Banner = function (_Component) {
           ' Login '
         ),
         _react2.default.createElement(
-          _reactRouterDom.Link,
-          { to: '/logout' },
-          ' Logout '
-        )
+          'button',
+          { name: 'logout', onClick: this.props.onClick },
+          ' logout '
+        ),
+        console.log(this.props)
       );
     }
   }]);
@@ -25351,13 +25348,7 @@ var Banner = function (_Component) {
 exports.default = Banner;
 
 /***/ }),
-/* 106 */
-/***/ (function(module, exports) {
-
-"use strict";
-throw new Error("Module build failed: Error: ENOENT: no such file or directory, open '/Users/khafi/Desktop/ta2/ta2app/client/src/components/logintest.js'");
-
-/***/ }),
+/* 106 */,
 /* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 

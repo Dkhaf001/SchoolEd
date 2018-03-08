@@ -5,7 +5,6 @@ import axios from "axios";
 import Testing from "./testing";
 import Banner from "./banner.js";
 import Login from "./components/login.js";
-import Logintest from "./components/logintest.js";
 import Classtracker from './components/classtracker.js';
 import Selectedclass from './components/selectedclass.js';
 import Selectedstudent from './components/selectedstudent.js';
@@ -85,7 +84,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Banner />
+          <Banner onClick={this.onClickHandler}/>
           <Switch>
           <Route
             path="/login"

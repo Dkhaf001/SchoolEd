@@ -5,8 +5,8 @@ import Login from './components/login.js';
 
 
 class Banner extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   render() {
@@ -17,7 +17,8 @@ class Banner extends Component {
           <Link to="/class"> Classes </Link>
           <Link to="/students"> Students </Link>
           <Link to="/login"> Login </Link>
-          <Link to="/logout"> Logout </Link>
+          <button name="logout" onClick={this.props.onClick}> logout </button>
+          {console.log(this.props)}
           
       
       </div>
