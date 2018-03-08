@@ -1,0 +1,30 @@
+[
+  {
+    "student_id": 1,
+    "quiz_id": 2
+  },
+  {
+    "student_id": 2,
+    "quiz_id": 3
+  },
+  {
+    "student_id": 3,
+    "quiz_id": 4
+  },
+  {
+    "student_id": 4,
+    "quiz_id": 3
+  },
+  {
+    "student_id": 4,
+    "quiz_id": 1
+  },
+  {
+    "student_id": 1,
+    "quiz_id": 1
+  },
+  {
+    "student_id": 2,
+    "quiz_id": 3
+  }
+]

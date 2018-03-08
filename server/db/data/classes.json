@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Biology",
+    "lecture_id": 2
+  },
+  {
+    "name": "Calculus",
+    "lecture_id": 3
+  },
+  {
+    "name": "English",
+    "lecture_id": 4
+  },
+  {
+    "name": "Math",
+    "lecture_id": 3
+  },
+  {
+    "name": "Coding",
+    "lecture_id": 1
+  },
+  {
+    "name": "Thisss",
+    "lecture_id": 1
+  },
+  {
+    "name": "Recursion",
+    "lecture_id": 3
+  }
+]
