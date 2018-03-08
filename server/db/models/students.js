@@ -1,13 +1,11 @@
 const Sequelize = require('sequelize');
 const db = require('../db.js');
-
+const Schools = require('./schools.js');
+ 
 const Students = db.define('students', {
-  username: {
-    type: Sequelize.STRING,
-    unique: true
-  },
-  bio: Sequelize.STRING,
-  profile_picture: Sequelize.STRING
+  name: Sequelize.STRING
 });
 
-module.exports = Users;
+Students.belongsTo(Schools, { foreignKey: 'school_id' });
+
+module.exports = Students;
