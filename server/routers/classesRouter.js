@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const allClassesController = require('../controllers/allClassesController.js');
+const classesController = require('../controllers/classesController.js');
 
 router.route('/')
   .post(async (req, res) => {
     try {
       console.log(req.body)
-      await allClassesController.addClass(req.body);
+      await classesController.addClass(req.body);
       res.sendStatus(200);
     } catch (err) {
       res.sendStatus(500);
@@ -13,7 +13,7 @@ router.route('/')
   })
   .get(async (req, res) => {
     try {
-      let allClasses = await allClassesController.fetchAllClasses(req.query.classes);
+      let allClasses = await classesController.fetchAllClasses(req.query.classes);
 
       
       res.send({
@@ -25,7 +25,7 @@ router.route('/')
   })
   .delete(async (req, res) => {
     try {
-      await allClassesController.removeClass(req.body);
+      await classesController.removeClass(req.body);
       res.sendStatus(200);
     } catch (err) {
       res.sendStatus(500);

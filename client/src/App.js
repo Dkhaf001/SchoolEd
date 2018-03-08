@@ -48,7 +48,7 @@ class App extends Component {
   onClickHandler(e) {
     if (e.target.name === "signin") {
         console.log('routing to /api/login');
-        axios.get('/api/login')
+        axios.get('/api/auth', { params: { email:this.state.email, password:this.state.password } })
         .then(()=> {
           this.setState({
             auth: "true"
@@ -58,13 +58,22 @@ class App extends Component {
     } else if (e.target.name === 'create') {
        //axios request to controller to handle create
        console.log('username: ', this.state.email, 'password: ', this.state.password);
-       axios.post('/api/signup', { email:this.state.email, password:this.state.password })
+       axios.post('/api/auth', { email:this.state.email, password:this.state.password })
        .then(() => {
          
          console.log('creating');
        })
+    } else if (e.target.name === 'logout') {
+      console.log('logout frontend logic');
+      axios.delete('/api/')
+      .then(() => {
+        console.log('session destroyed');
+      }).catch( error => {
+        console.log('session destroyed!');
+        res.redirect('/api/login');
+      });
     }
-  }
+  };
 
   
 

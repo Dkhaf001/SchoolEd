@@ -1,9 +1,13 @@
 const router = require('express').Router();
-const allClassesRouter = require('./routers/allClassesRouter.js');
+const classesRouter = require('./routers/classesRouter.js');
 const Users = require('./db/models/users.js');
+const path = require('path');
+const authRouter = require('./routers/authRouter');
+
+router.use('/auth', authRouter);
 
 var sessionChecker = (req, res, next) => {
-    if (!req.session.user) {
+    if (!(req.session && req.session.user)) {
         res.redirect('/login');
     } else {
         console.log('sessionChecker failed');
@@ -12,57 +16,67 @@ var sessionChecker = (req, res, next) => {
 };
 
 
-router.get('/', sessionChecker, (req, res) => {
-    console.log('/ router logic hit');
-    res.render('index');
-});
-
-
-router.route('/signup')
+router.route('/')
     .get(sessionChecker, (req, res) => {
-        console.log("in here");
-        // res.sendFile(__dirname + '/public/signup.html');
+        console.log('/ router logic hit');
+        res.render('index');
     })
-    .post((req, res) => {
-        console.log('made it into postasdasd');
-        Users.create({
-            email: req.body.email,
-            password: req.body.password
-        })
-        .then(user => {
-            req.session.user = user.dataValues;
-            res.redirect('/');
-        })
-        .catch(error => {
-            console.log('signup error');
-            res.redirect('/');
-        });
+    .delete(async (req, res) => {
+        if (req.session) {
+            delete req.session;
+            console.log(req.session);
+            res.sendStatus(200);
+        } else {
+            res.sendStatus(500);
+        }
     });
 
 
+// router.route('/signup')
+//     .get(sessionChecker, (req, res) => {
+//         console.log("in here");
+//         // res.sendFile(__dirname + '/public/signup.html');
+//     })
+//     .post((req, res) => {
+//         console.log('made it into postasdasd');
+//         Users.create({
+//             email: req.body.email,
+//             password: req.body.password
+//         })
+//         .then(user => {
+//             req.session.user = user.dataValues;
+//             console.log('no error yet');
+//             res.redirect('/');
+//         })
+//         .catch(error => {
+//             console.log('signup error');
+//             res.redirect('/');
+//         });
+//     });
 
-router.route('/login')
-    .get(sessionChecker, (req, res) => {
-        console.log("in hereee");
-        res.sendFile(__dirname + '/public/login.html');
-    })
-    .post((req, res) => {
-        var username = req.body.username,
-            password = req.body.password;
 
-        Users.findOne({ where: { username: username } }).then(function (user) {
-            if (!user) {
-                res.redirect('/');
-            } else if (!user.validPassword(password)) {
-                res.redirect('/login');
-            } else {
-                req.session.user = user.dataValues;
-                res.redirect('/');
-            }
-        }).catch(error => {
-            res.redirect('/login');
-        })
-    });
+
+// router.route('/login')
+//     .get((req, res) => {
+        
+//     })
+//     .post((req, res) => {
+//         var username = req.body.username,
+//             password = req.body.password;
+
+//         Users.findOne({ where: { username: username } }).then(function (user) {
+//             if (!user) {
+//                 res.redirect('/');
+//             } else if (!user.validPassword(password)) {
+//                 res.redirect('/login');
+//             } else {
+//                 req.session.user = user.dataValues;
+//                 res.redirect('/');
+//             }
+//         }).catch(error => {
+//             res.redirect('/login');
+//         })
+//     });
 
 
 

@@ -20555,7 +20555,7 @@ var App = function (_Component) {
 
       if (e.target.name === "signin") {
         console.log('routing to /api/login');
-        _axios2.default.get('/api/login').then(function () {
+        _axios2.default.get('/api/auth', { params: { email: this.state.email, password: this.state.password } }).then(function () {
           _this2.setState({
             auth: "true"
           });
@@ -20564,17 +20564,26 @@ var App = function (_Component) {
       } else if (e.target.name === 'create') {
         //axios request to controller to handle create
         console.log('username: ', this.state.email, 'password: ', this.state.password);
-        _axios2.default.post('/api/signup', { email: this.state.email, password: this.state.password }).then(function () {
+        _axios2.default.post('/api/auth', { email: this.state.email, password: this.state.password }).then(function () {
 
           console.log('creating');
         });
+      } else if (e.target.name === 'logout') {
+        console.log('logout frontend logic');
+        _axios2.default.delete('/api/').then(function () {
+          console.log('session destroyed');
+        }).catch(function (error) {
+          console.log('session destroyed!');
+          res.redirect('/api/login');
+        });
       }
     }
+  }, {
+    key: "render",
+
 
     /* {this.state.render === 'Home' && <Home />} */
 
-  }, {
-    key: "render",
     value: function render() {
       var _this3 = this;
 
@@ -25343,56 +25352,10 @@ exports.default = Banner;
 
 /***/ }),
 /* 106 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 "use strict";
-// import React from 'react';
-
-
-// class Logintest extends React.Component {
-//   state = {
-//     email: '',
-//     password: '',
-//   }
-
-//   onChange = (e) => {
-//     this.setState({
-//       [e.target.name]: e.target.value,
-//     });
-//   }
-
-//   onSubmit = async () => {
-//     const response = await this.props.mutate({
-//       variables: this.state,
-//     });
-//     const { token, refreshToken } = response.data.login;
-//     localStorage.setItem('token', token);
-//     localStorage.setItem('refreshToken', refreshToken);
-//   }
-
-//   render() {
-//     return (
-//       <div>
-//         <input
-//           name='email'
-//           placeholder='Email'
-//           onChange={e => this.onChange(e)}
-//           value={this.state.email} />
-//         <input
-//           name='password'
-//           placeholder='Password'
-//           type='password'
-//           onChange={e => this.onChange(e)}
-//           value={this.state.password} />
-//         <br />
-//         <button onClick={() => this.onSubmit()} type="primary">Login</button>
-//       </div>
-//     );
-//   }
-// };
-
-// export default Logintest;
-
+throw new Error("Module build failed: Error: ENOENT: no such file or directory, open '/Users/khafi/Desktop/ta2/ta2app/client/src/components/logintest.js'");
 
 /***/ }),
 /* 107 */

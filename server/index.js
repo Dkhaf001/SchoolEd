@@ -12,12 +12,6 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, '/../client/dist')));
-app.use('/api', router);
-
-app.use(morgan('dev'));
-//---------------------------------------------------
-
 app.use(session({
     key: 'user_sid',
     secret: 'ajkfhekjhfgajgjeah',
@@ -27,6 +21,12 @@ app.use(session({
         expires: 600000
     }
 }));
+app.use(express.static(path.join(__dirname, '/../client/dist')));
+app.use('/api', router);
+
+app.use(morgan('dev'));
+//---------------------------------------------------
+
 
 // app.use((req, res, next) => {
 //     if (req.cookies.user_sid && !req.session.user) {
