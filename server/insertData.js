@@ -19,8 +19,7 @@ const studentsTeachersData = require("./db/data/studentsTeachers.json");
 const teachersData = require("./db/data/teachers.json");
 const topicsData = require("./db/data/topics.json");
 
-Schools.bulkCreate(schoolsData)
-  .then(() => {
+Schools.bulkCreate(schoolsData).then(() => {
     Quizzes.bulkCreate(quizzesData).then(() => {
       Students.bulkCreate(studentsData).then(() => {
         Topics.bulkCreate(topicsData).then(() => {

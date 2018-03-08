@@ -21,7 +21,7 @@ router.get('/', sessionChecker, (req, res) => {
 router.route('/signup')
     .get(sessionChecker, (req, res) => {
         console.log("in here");
-        // res.sendFile(__dirname + '/public/signup.html');
+        res.sendFile(__dirname + '/public/signup.html');
     })
     .post((req, res) => {
         console.log('made it into postasdasd');
@@ -31,10 +31,10 @@ router.route('/signup')
         })
         .then(user => {
             req.session.user = user.dataValues;
-            res.redirect('htto://localhost:3000/');
+            res.redirect('/');
         })
         .catch(error => {
-            res.redirect('http://localhost:3000/signup');
+            res.redirect('/signup');
         });
     });
 

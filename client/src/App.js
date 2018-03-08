@@ -58,7 +58,7 @@ class App extends Component {
     } else if (e.target.name === 'create') {
        //axios request to controller to handle create
        console.log('username: ', this.state.email, 'password: ', this.state.password);
-       axios.post('http://localhost:9001/api/signup', { email:this.state.email, password:this.state.password })
+       axios.post('/api/signup', { email:this.state.email, password:this.state.password })
        .then(() => {
          
          console.log('creating');
