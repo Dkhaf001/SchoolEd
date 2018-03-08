@@ -1,36 +1,36 @@
 [
   {
-    "name": "Intro to adwda",
+    "name": "abc",
     "student_id": 2,
     "quiz_id": 1
   },
   {
-    "name": "Intro to adwdaadwad",
+    "name": "abcd",
     "student_id": 3,
     "quiz_id": 1
   },
   {
-    "name": "Intro to dwdd",
+    "name": "abcdef",
     "student_id": 4,
     "quiz_id": 2
   },
   {
-    "name": "Intro to piggy",
+    "name": "aeffa",
     "student_id": 3,
     "quiz_id": 3
   },
   {
-    "name": "Intro to cookie",
+    "name": "fffff",
     "student_id": 1,
     "quiz_id": 4
   },
   {
-    "name": "Intro to human anatomy",
+    "name": "aaaa",
     "student_id": 1,
     "quiz_id": 5
   },
   {
-    "name": "Intro to genetics",
+    "name": "sssss",
     "student_id": 3,
     "quiz_id": 6
   }

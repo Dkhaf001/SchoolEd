@@ -1,6 +1,5 @@
 const Sequelize = require('sequelize');
 const db = require('../db.js');
-
 const Students = require('./students.js');
 const Classes = require('./classes.js');
 

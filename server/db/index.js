@@ -11,7 +11,7 @@ const StudentsTeachers = require('./models/studentsTeachers.js');
 const Quizzes = require('./models/quizzes.js');
 
 
-db.sync()
+db.sync({force:true})
 .then(() => {
   console.log('db synced');
 })
