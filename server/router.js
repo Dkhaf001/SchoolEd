@@ -21,7 +21,7 @@ router.get('/', sessionChecker, (req, res) => {
 router.route('/signup')
     .get(sessionChecker, (req, res) => {
         console.log("in here");
-        res.sendFile(__dirname + '/public/signup.html');
+        // res.sendFile(__dirname + '/public/signup.html');
     })
     .post((req, res) => {
         console.log('made it into postasdasd');
@@ -34,7 +34,8 @@ router.route('/signup')
             res.redirect('/');
         })
         .catch(error => {
-            res.redirect('/signup');
+            console.log('signup error');
+            res.redirect('/');
         });
     });
 
@@ -51,14 +52,16 @@ router.route('/login')
 
         Users.findOne({ where: { username: username } }).then(function (user) {
             if (!user) {
-                res.redirect('/login');
+                res.redirect('/');
             } else if (!user.validPassword(password)) {
                 res.redirect('/login');
             } else {
                 req.session.user = user.dataValues;
                 res.redirect('/');
             }
-        });
+        }).catch(error => {
+            res.redirect('/login');
+        })
     });
 
 

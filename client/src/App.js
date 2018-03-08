@@ -47,8 +47,8 @@ class App extends Component {
   
   onClickHandler(e) {
     if (e.target.name === "signin") {
-        console.log('routing to /');
-        axios.get('/')
+        console.log('routing to /api/login');
+        axios.get('/api/login')
         .then(()=> {
           this.setState({
             auth: "true"

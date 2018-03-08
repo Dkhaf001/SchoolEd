@@ -20554,8 +20554,8 @@ var App = function (_Component) {
       var _this2 = this;
 
       if (e.target.name === "signin") {
-        console.log('routing to /');
-        _axios2.default.get('/').then(function () {
+        console.log('routing to /api/login');
+        _axios2.default.get('/api/login').then(function () {
           _this2.setState({
             auth: "true"
           });
