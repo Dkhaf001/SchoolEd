@@ -5,22 +5,18 @@ const session = require('express-session');
 const morgan = require('morgan');
 const router = require('./router.js');
 const path = require('path');
-const User = require('./db/models/user.js');
+var cors = require('cors')
 
 const app = express();
 
-// app.use(bodyParser.urlencoded({extended: true}));
-// app.use(bodyParser.json());
-//---------------------------------------------------
-app.use('/api', router);
+app.use(cors());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 app.use('/', express.static(path.join(__dirname, '../public/')));
+app.use('/api', router);
 
 app.use(morgan('dev'));
-
-app.use(bodyParser.urlencoded({ extended: true }));
-
-
-app.use(cookieParser());
+//---------------------------------------------------
 
 app.use(session({
     key: 'user_sid',
@@ -32,12 +28,12 @@ app.use(session({
     }
 }));
 
-app.use((req, res, next) => {
-    if (req.cookies.user_sid && !req.session.user) {
-        res.clearCookie('user_sid');        
-    }
-    next();
-});
+// app.use((req, res, next) => {
+//     if (req.cookies.user_sid && !req.session.user) {
+//         res.clearCookie('user_sid');        
+//     }
+//     next();
+// });
 
 
 

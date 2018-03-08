@@ -9,6 +9,7 @@ const StudentsClasses = require('./models/studentsClasses.js');
 const StudentsQuizzes = require('./models/studentsQuizzes.js');
 const StudentsTeachers = require('./models/studentsTeachers.js');
 const Quizzes = require('./models/quizzes.js');
+const Users = require('./models/users.js');
 
 
 db.sync({force:true})

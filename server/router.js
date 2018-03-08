@@ -1,44 +1,46 @@
 const router = require('express').Router();
-
-
+const allClassesRouter = require('./routers/allClassesRouter.js');
+const Users = require('./db/models/users.js');
 
 var sessionChecker = (req, res, next) => {
-    if (!(req.session.user && req.cookies.user_sid)) {
+    if (!req.session.user) {
         res.redirect('/login');
     } else {
+        console.log('sessionChecker failed');
         next();
     }    
 };
 
 
-app.get('/', sessionChecker, (req, res) => {
+router.get('/', sessionChecker, (req, res) => {
+    console.log('/ router logic hit');
     res.render('index');
 });
 
 
-app.route('/signup')
+router.route('/signup')
     .get(sessionChecker, (req, res) => {
         console.log("in here");
-        res.sendFile(__dirname + '/public/signup.html');
+        // res.sendFile(__dirname + '/public/signup.html');
     })
     .post((req, res) => {
-        User.create({
-            username: req.body.username,
+        console.log('made it into postasdasd');
+        Users.create({
             email: req.body.email,
             password: req.body.password
         })
         .then(user => {
             req.session.user = user.dataValues;
-            res.redirect('/');
+            res.redirect('htto://localhost:3000/');
         })
         .catch(error => {
-            res.redirect('/signup');
+            res.redirect('http://localhost:3000/signup');
         });
     });
 
 
 
-app.route('/login')
+router.route('/login')
     .get(sessionChecker, (req, res) => {
         console.log("in hereee");
         res.sendFile(__dirname + '/public/login.html');
@@ -47,21 +49,21 @@ app.route('/login')
         var username = req.body.username,
             password = req.body.password;
 
-        User.findOne({ where: { username: username } }).then(function (user) {
+        Users.findOne({ where: { username: username } }).then(function (user) {
             if (!user) {
                 res.redirect('/login');
             } else if (!user.validPassword(password)) {
                 res.redirect('/login');
             } else {
                 req.session.user = user.dataValues;
-                res.redirect('/dashboard');
+                res.redirect('/');
             }
         });
     });
 
 
 
-app.get('/student', (req, res) => {
+router.get('/student', (req, res) => {
     if (req.session.user && req.cookies.user_sid) {
         res.sendFile(__dirname + '/public/');
     } else {
@@ -71,7 +73,7 @@ app.get('/student', (req, res) => {
 
 
 
-app.get('/logout', (req, res) => {
+router.get('/logout', (req, res) => {
     if (req.session.user && req.cookies.user_sid) {
         res.clearCookie('user_sid');
         res.redirect('/');
@@ -81,7 +83,7 @@ app.get('/logout', (req, res) => {
 });
 
 
-app.use(function (req, res, next) {
+router.use(function (req, res, next) {
   res.status(404).send("Sorry can't find that!")
 });
 

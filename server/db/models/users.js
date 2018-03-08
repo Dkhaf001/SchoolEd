@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const bcrypt = require('bcrypt');
 const db = require('../db.js');
 
-const Users = sequelize.define('users', {
+const Users = db.define('users', {
   // username: {
   //     type: Sequelize.STRING,
   //     unique: true,
