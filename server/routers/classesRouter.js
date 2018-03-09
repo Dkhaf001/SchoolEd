@@ -12,11 +12,9 @@ router.route('/')
   })
   .get(async (req, res) => {
     try {
-      let allClasses = await classesController.fetchAllClasses(req.query.classes);
+      let allClasses = await classesController.fetchAllClasses(req.query);
 
-      res.send({
-        classes: allClasses
-      });  
+      res.send(allClasses);  
     } catch (err) {
       res.sendStatus(500);
     }

@@ -3,7 +3,7 @@ const db = require('../db.js');
 const Schools = require('./schools.js');
 
 const Teachers = db.define('teachers', {
-  name: {
+  email: {
     type: Sequelize.STRING,
     unique: true
   }

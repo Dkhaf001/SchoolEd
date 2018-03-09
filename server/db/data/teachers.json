@@ -1,37 +1,30 @@
 [
   {
-    "name": "Mrs. Fields",
-    "class_id": 2,
+    "email": "Mrs. Fields",
     "school_id": 1
   },
   {
-    "name": "Mr. Bob",
-    "class_id": 3,
+    "email": "Mr. Bob",
     "school_id": 1
   },
   {
-    "name": "Mrs. Parker",
-    "class_id": 4,
+    "email": "Mrs. Parker",
     "school_id": 2
   },
   {
-    "name": "Mr. Science",
-    "class_id": 3,
+    "email": "Mr. Science",
     "school_id": 3
   },
   {
-    "name": "Mr. Cookie",
-    "class_id": 1,
+    "email": "Mr. Cookie",
     "school_id": 4
   },
   {
-    "name": "Mrs. Cookie",
-    "class_id": 1,
+    "email": "Mrs. Cookie",
     "school_id": 5
   },
   {
-    "name": "Albert Einstein",
-    "class_id": 3,
+    "email": "Albert Einstein",
     "school_id": 6
   }
 ]

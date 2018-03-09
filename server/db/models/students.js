@@ -3,7 +3,7 @@ const db = require('../db.js');
 const Schools = require('./schools.js');
  
 const Students = db.define('students', {
-  name: Sequelize.STRING
+  email: Sequelize.STRING
 });
 
 Students.belongsTo(Schools, { foreignKey: 'school_id' });

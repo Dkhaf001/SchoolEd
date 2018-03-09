@@ -5,7 +5,7 @@ module.exports = {
   login: async ({ email, password }) => {
     try {
       let user = await Users.findOne({ where: { email: email } });
-      console.log(user);
+      // console.log(user);
       let isCorrect = bcrypt.compare(password, user.password);
 
       if (!isCorrect) {
@@ -20,7 +20,7 @@ module.exports = {
   signup: async ({ email, password, type }) => {
     try {
       console.log('we are inside signup!!!!!!');
-      Users.create({
+      await Users.create({
         email: email,
         password: password,
         type: type

@@ -19,29 +19,24 @@ const studentsTeachersData = require("./db/data/studentsTeachers.json");
 const teachersData = require("./db/data/teachers.json");
 const topicsData = require("./db/data/topics.json");
 
-Schools.bulkCreate(schoolsData).then(() => {
-    Quizzes.bulkCreate(quizzesData).then(() => {
-      Students.bulkCreate(studentsData).then(() => {
-        Topics.bulkCreate(topicsData).then(() => {
-          Lectures.bulkCreate(lecturesData).then(() => {
-            Classes.bulkCreate(classesData).then(() => {
-              Teachers.bulkCreate(teachersData).then(() => {
-                StudentsClasses.bulkCreate(studentsClassesData).then(() => {
-                  StudentsQuizzes.bulkCreate(studentsQuizzesData).then(() => {
-                    StudentsTeachers.bulkCreate(studentsTeachersData).then(
-                      () => {
-                        console.log("done inserting data");
-                      }
-                    );
-                  });
-                });
-              });
-            });
-          });
-        });
-      });
-    });
-  })
-  .catch(err => {
+const create = async () => {
+  try {
+    await Schools.bulkCreate(schoolsData);
+    await Teachers.bulkCreate(teachersData);
+    await Classes.bulkCreate(classesData);
+    await Lectures.bulkCreate(lecturesData);
+    await Topics.bulkCreate(topicsData);
+    await Quizzes.bulkCreate(quizzesData);
+    await Students.bulkCreate(studentsData);
+    await StudentsClasses.bulkCreate(studentsClassesData);
+    await StudentsQuizzes.bulkCreate(studentsQuizzesData);
+    await StudentsTeachers.bulkCreate(studentsTeachersData);
+    console.log('done inserting data');
+  } catch (err) {
+    console.log('error inserting data');
     throw err;
-  });
+  }
+};
+
+create();
+

@@ -1,37 +1,30 @@
 [
   {
     "name": "abc",
-    "student_id": 2,
-    "quiz_id": 1
+    "lecture_id": 1
   },
   {
     "name": "abcd",
-    "student_id": 3,
-    "quiz_id": 1
+    "lecture_id": 1
   },
   {
     "name": "abcdef",
-    "student_id": 4,
-    "quiz_id": 2
+    "lecture_id": 2
   },
   {
     "name": "aeffa",
-    "student_id": 3,
-    "quiz_id": 3
+    "lecture_id": 3
   },
   {
     "name": "fffff",
-    "student_id": 1,
-    "quiz_id": 4
+    "lecture_id": 4
   },
   {
     "name": "aaaa",
-    "student_id": 1,
-    "quiz_id": 5
+    "lecture_id": 3
   },
   {
     "name": "sssss",
-    "student_id": 3,
-    "quiz_id": 6
+    "lecture_id": 2
   }
 ]

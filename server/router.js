@@ -5,6 +5,7 @@ const path = require('path');
 const authRouter = require('./routers/authRouter');
 
 router.use('/auth', authRouter);
+router.use('/class', classesRouter);
 
 var sessionChecker = (req, res, next) => {
     if (!(req.session && req.session.user)) {

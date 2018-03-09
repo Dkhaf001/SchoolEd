@@ -1,23 +1,30 @@
 [
   {
-    "grade": 90
+    "grade": 90,
+    "topic_id": 1
   },
   {
-    "grade": 82
+    "grade": 82,
+    "topic_id": 2
   },
   {
-    "grade": 1
+    "grade": 1,
+    "topic_id": 2
   },
   {
-    "grade": 33
+    "grade": 33,
+    "topic_id": 4
   },
   {
-    "grade": 84
+    "grade": 84,
+    "topic_id": 4
   },
   {
-    "grade": 85
+    "grade": 85,
+    "topic_id": 5
   },
   {
-    "grade": 89
+    "grade": 89,
+    "topic_id": 6
   }
 ]

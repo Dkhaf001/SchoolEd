@@ -1,47 +1,46 @@
 const Classes = require('../db/models/classes.js');
-const Users = require('../db/models/users.js');
+const Teachers = require('../db/models/teachers.js');
+const StudentsClasses = require('../db/models/studentsClasses.js');
+const Students = require('../db/models/students.js');
+
 
 module.exports = {
-  addClass: async ({ following, follower }) => {
+  addClass: async ({ className, teacher }) => {
     try {
-      // let followingUser = await Users.findOne({ where: { username: following } })
-      // let followerUser = await Users.findOne({ where: { username: follower } })
-      
-      // if (followingUser.id === followerUser.id) {
-      //   throw null;
-      // }
-      
-      // let [ data, created ] = await FollowingsFollowers.findOrCreate({
-      //   where: {
-      //     following_id: followingUser.id,
-      //     follower_id: followerUser.id
-      //   }
-      // });
-      
-      // if (!created) {
-      //   throw null;
-      // }
+      let { id } = await Teachers.findOne({ where: { email: teacher }});
+      await Classes.create({ name: className, teacher_id: id });
     } catch (err) {
       throw err;
     }
   },
-  fetchAllClasses: async (username) => {
+  fetchAllClasses: async ({ email, type }) => {
+    console.log('type:', typeof type);
     try {
-      let allClasses = await Classes.findAll({})   
-      return allClasses;
+      if (type === '0') { //student
+        let student = await Students.findOne({ where: { email: email }});
+        let all = await StudentsClasses.findAll({ where: { student_id: student.id }});
+        let classes = [];
+        for (let i = 0; i < all.length; i++) {
+          let aClass = await Classes.findOne({ where: { id: all[i].class_id } });
+          classes.push(aClass);
+        }
+        return classes;
+      } else if (type === '1') {
+        console.log('ok we here');
+        let teacher = await Teachers.findOne({ where: { email: email } });
+        console.log('found teacher:', teacher.email);
+        let classes = await Classes.findAll({ where: { teacher_id: teacher.id } });
+        return classes;
+      }
     } catch (err) {
       throw err;
     }
   },
-  removeClass: async ({ following, follower }) => {
+  removeClass: async ({ name }) => {
     try {
-      let followingUser = await Users.findOne({ where: { username: following } });
-      let followerUser = await Users.findOne({ where: { username: follower } });
-      
-      let destroyed = await FollowingsFollowers.destroy({
+      let destroyed = await Classes.destroy({
         where: {
-          following_id: followingUser.id,
-          follower_id: followerUser.id
+          name: name
         }
       });
 

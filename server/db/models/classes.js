@@ -10,6 +10,6 @@ const Classes = db.define('classes', {
   }
 });
 
-Classes.belongsTo(Lectures, { foreignKey: 'teacber_id' });
+Classes.belongsTo(Teachers, { foreignKey: 'teacher_id' });
 
 module.exports = Classes;
