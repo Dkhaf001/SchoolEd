@@ -13,11 +13,11 @@ class Banner extends Component {
     return (
       <div className="rowbanner">
         
-          <Link to="/"> Home </Link>
+          {/* <Link to="/"> Home </Link> */}
           <Link to="/class"> Classes </Link>
           <Link to="/students"> Students </Link>
           <Link to="/login"> Login </Link>
-          <button name="logout" onClick={this.props.onClick}> logout </button>
+          <button className="linkbutton" name="logout" onClick={this.props.onClick}> Logout </button>
           {console.log(this.props)}
           
       

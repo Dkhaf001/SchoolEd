@@ -25338,11 +25338,6 @@ var Banner = function (_Component) {
         { className: 'rowbanner' },
         _react2.default.createElement(
           _reactRouterDom.Link,
-          { to: '/' },
-          ' Home '
-        ),
-        _react2.default.createElement(
-          _reactRouterDom.Link,
           { to: '/class' },
           ' Classes '
         ),
@@ -25358,8 +25353,8 @@ var Banner = function (_Component) {
         ),
         _react2.default.createElement(
           'button',
-          { name: 'logout', onClick: this.props.onClick },
-          ' logout '
+          { className: 'linkbutton', name: 'logout', onClick: this.props.onClick },
+          ' Logout '
         ),
         console.log(this.props)
       );
@@ -25863,7 +25858,7 @@ exports = module.exports = __webpack_require__(113)(false);
 
 
 // module
-exports.push([module.i, "body {\n  margin: 0;\n  padding: 0;\n  font-family: sans-serif;\n}\n\n.rowbanner {\n  border: solid rgb(11, 22, 241);\n  background-image: url(\"https://intownphotography.files.wordpress.com/2013/08/3119999-545079-abstract-light-blue-hand-drawn-pattern-waves-background-seamless-pattern-can-be-used-for-wallpaper-pattern-fills-web-page-background-surface-textures.jpeg\");\n  background-attachment: fixed;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  width: 100%;\n  text-align: center;\n}\n.App{\n  text-align: center;\n}\n.row {\n  padding: 2%;\n}\n\n.class-tracker-col {\n  height: 80vh;\n  border: black solid 2px;\n}\n\n.selected-class-col {\n  height: 40vh;\n  border: black solid 2px;\n}", ""]);
+exports.push([module.i, "body {\n  margin: 0;\n  padding: 0;\n  font-family: sans-serif;\n}\n\n.rowbanner {\n  border: solid rgb(11, 22, 241);\n  background-image: url(\"https://intownphotography.files.wordpress.com/2013/08/3119999-545079-abstract-light-blue-hand-drawn-pattern-waves-background-seamless-pattern-can-be-used-for-wallpaper-pattern-fills-web-page-background-surface-textures.jpeg\");\n  background-attachment: fixed;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  width: 100%;\n  text-align: center;\n}\n.App{\n  text-align: center;\n}\n.row {\n  padding: 2%;\n}\n\n.class-tracker-col {\n  height: 80vh;\n  border: black solid 2px;\n}\n\n.selected-class-col {\n  height: 40vh;\n  border: black solid 2px;\n}\n\n.linkbutton {\n  background:none!important;\n  color: #007bff;\n  border:none; \n  padding:0!important;\n  font: inherit;\n  /*border is optional*/\n  border-bottom:1px solid #444; \n  cursor: pointer;\n}", ""]);
 
 // exports
 
