@@ -4,23 +4,23 @@ const Users = require('../db/models/users.js');
 module.exports = {
   addClass: async ({ following, follower }) => {
     try {
-      let followingUser = await Users.findOne({ where: { username: following } })
-      let followerUser = await Users.findOne({ where: { username: follower } })
+      // let followingUser = await Users.findOne({ where: { username: following } })
+      // let followerUser = await Users.findOne({ where: { username: follower } })
       
-      if (followingUser.id === followerUser.id) {
-        throw null;
-      }
+      // if (followingUser.id === followerUser.id) {
+      //   throw null;
+      // }
       
-      let [ data, created ] = await FollowingsFollowers.findOrCreate({
-        where: {
-          following_id: followingUser.id,
-          follower_id: followerUser.id
-        }
-      });
+      // let [ data, created ] = await FollowingsFollowers.findOrCreate({
+      //   where: {
+      //     following_id: followingUser.id,
+      //     follower_id: followerUser.id
+      //   }
+      // });
       
-      if (!created) {
-        throw null;
-      }
+      // if (!created) {
+      //   throw null;
+      // }
     } catch (err) {
       throw err;
     }

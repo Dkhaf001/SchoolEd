@@ -1,12 +1,18 @@
 body {
   margin: 0;
   padding: 0;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkrAGG3cU6wmlDoJ_-vDeMhseNYr52dJJWzDiXDBxCnBjfMd69");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   font-family: sans-serif;
 }
 
 .rowbanner {
   border: solid rgb(11, 22, 241);
-  background-image: url("https://intownphotography.files.wordpress.com/2013/08/3119999-545079-abstract-light-blue-hand-drawn-pattern-waves-background-seamless-pattern-can-be-used-for-wallpaper-pattern-fills-web-page-background-surface-textures.jpeg");
+  background-color: #83d8ff;
+  /* background-image: url("https://intownphotography.files.wordpress.com/2013/08/3119999-545079-abstract-light-blue-hand-drawn-pattern-waves-background-seamless-pattern-can-be-used-for-wallpaper-pattern-fills-web-page-background-surface-textures.jpeg"); */
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -14,11 +20,25 @@ body {
   width: 100%;
   text-align: center;
 }
+
+.leftbanner {
+  float: top;
+}
+
+.middlebanner{
+  width: 80;
+  text-align: center;
+}
+
 .App{
   text-align: center;
 }
 .row {
   padding: 2%;
+}
+
+.login {
+  margin-top: 5%;
 }
 
 .class-tracker-col {
@@ -32,12 +52,50 @@ body {
 }
 
 .linkbutton {
-  background:none!important;
-  color: #007bff;
-  border:none; 
-  padding:0!important;
-  font: inherit;
-  /*border is optional*/
-  border-bottom:1px solid #444; 
-  cursor: pointer;
+  margin-left: 10px;
+  background-color: blue;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* .linkbuttonsidebar { */
+  /* background-color: blue;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block; */
+/* } */
+
+.sidenav {
+  border: solid rgb(11, 22, 241);
+  margin-top: 4.75%;
+  height: 100%;
+  width: 175px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #83d8ff;
+  /* background-image: url("https://intownphotography.files.wordpress.com/2013/08/3119999-545079-abstract-light-blue-hand-drawn-pattern-waves-background-seamless-pattern-can-be-used-for-wallpaper-pattern-fills-web-page-background-surface-textures.jpeg"); */
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 6px 6px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
 }

@@ -9,6 +9,7 @@ import Classtracker from './components/classtracker.js';
 import Selectedclass from './components/selectedclass.js';
 import Selectedstudent from './components/selectedstudent.js';
 import View from './View.js'
+import Sidenav from './sidenav.js';
 import "./style.css";
 
 class App extends Component {

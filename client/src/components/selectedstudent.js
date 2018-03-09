@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import Sidenav from '../sidenav.js';
 
 export default class SelectedStudent extends Component {
   render() {
     return (
       <div>
+        <Sidenav />
         <div className="container">
           <div className="row">
             <div className="col-md-4 class-tracker-col">

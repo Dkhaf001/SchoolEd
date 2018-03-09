@@ -4,7 +4,6 @@ const classesController = require('../controllers/classesController.js');
 router.route('/')
   .post(async (req, res) => {
     try {
-      console.log(req.body)
       await classesController.addClass(req.body);
       res.sendStatus(200);
     } catch (err) {
@@ -15,7 +14,6 @@ router.route('/')
     try {
       let allClasses = await classesController.fetchAllClasses(req.query.classes);
 
-      
       res.send({
         classes: allClasses
       });  

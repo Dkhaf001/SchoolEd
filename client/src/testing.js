@@ -7,8 +7,8 @@ class Testing extends Component {
 
   render() {
     return (
-      <div>
-      <h1><strong>Sirgay</strong></h1>
+      <div className="login">
+      <h1><strong>Welcome To SchoolEd</strong></h1>
       </div>
     );
   }

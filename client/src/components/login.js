@@ -23,7 +23,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div align="center">
+      <div className="login" align="center">
         <input type="email" name="email" placeholder="Email" onChange={this.props.change} />
         <br />
         <input type="password" name="password" placeholder="Password" onChange={this.props.change} />

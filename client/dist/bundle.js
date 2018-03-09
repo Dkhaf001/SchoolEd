@@ -3101,7 +3101,7 @@ var Login = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { align: 'center' },
+        { className: 'login', align: 'center' },
         _react2.default.createElement('input', { type: 'email', name: 'email', placeholder: 'Email', onChange: this.props.change }),
         _react2.default.createElement('br', null),
         _react2.default.createElement('input', { type: 'password', name: 'password', placeholder: 'Password', onChange: this.props.change }),
@@ -20491,23 +20491,27 @@ var _login = __webpack_require__(42);
 
 var _login2 = _interopRequireDefault(_login);
 
-var _classtracker = __webpack_require__(107);
+var _classtracker = __webpack_require__(106);
 
 var _classtracker2 = _interopRequireDefault(_classtracker);
 
-var _selectedclass = __webpack_require__(108);
+var _selectedclass = __webpack_require__(107);
 
 var _selectedclass2 = _interopRequireDefault(_selectedclass);
 
-var _selectedstudent = __webpack_require__(109);
+var _selectedstudent = __webpack_require__(108);
 
 var _selectedstudent2 = _interopRequireDefault(_selectedstudent);
 
-var _View = __webpack_require__(110);
+var _View = __webpack_require__(109);
 
 var _View2 = _interopRequireDefault(_View);
 
-__webpack_require__(111);
+var _sidenav = __webpack_require__(115);
+
+var _sidenav2 = _interopRequireDefault(_sidenav);
+
+__webpack_require__(110);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25286,18 +25290,18 @@ var Testing = function (_Component) {
   }
 
   _createClass(Testing, [{
-    key: 'render',
+    key: "render",
     value: function render() {
       return _react2.default.createElement(
-        'div',
-        null,
+        "div",
+        { className: "login" },
         _react2.default.createElement(
-          'h1',
+          "h1",
           null,
           _react2.default.createElement(
-            'strong',
+            "strong",
             null,
-            'Sirgay'
+            "Welcome To SchoolEd"
           )
         )
       );
@@ -25356,32 +25360,36 @@ var Banner = function (_Component) {
         'div',
         { className: 'rowbanner' },
         _react2.default.createElement(
-          'p',
-          null,
-          this.props.user
+          'div',
+          { className: 'leftbanner' },
+          this.props.user ? 'currently signed in as: ' + this.props.user : ''
         ),
         console.log(this.props.user),
         _react2.default.createElement(
-          _reactRouterDom.Link,
-          { to: '/class' },
-          ' Classes '
-        ),
-        _react2.default.createElement(
-          _reactRouterDom.Link,
-          { to: '/students' },
-          ' Students '
-        ),
-        _react2.default.createElement(
-          _reactRouterDom.Link,
-          { to: '/login' },
-          ' Login '
-        ),
-        _react2.default.createElement(
-          'button',
-          { className: 'linkbutton', name: 'logout', onClick: this.props.onClick },
-          ' Logout '
-        ),
-        console.log(this.props)
+          'div',
+          { className: 'middlebanner' },
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/class', className: 'linkbutton' },
+            ' Classes '
+          ),
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/students', className: 'linkbutton' },
+            ' Students '
+          ),
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/login', className: 'linkbutton' },
+            ' Login '
+          ),
+          _react2.default.createElement(
+            'button',
+            { className: 'linkbutton', name: 'logout', onClick: this.props.onClick },
+            ' Logout '
+          ),
+          console.log(this.props)
+        )
       );
     }
   }]);
@@ -25392,8 +25400,7 @@ var Banner = function (_Component) {
 exports.default = Banner;
 
 /***/ }),
-/* 106 */,
-/* 107 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25489,7 +25496,7 @@ exports.default = Banner;
 
 
 /***/ }),
-/* 108 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25504,6 +25511,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _sidenav = __webpack_require__(115);
+
+var _sidenav2 = _interopRequireDefault(_sidenav);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25523,70 +25534,71 @@ var SelectedClass = function (_Component) {
   }
 
   _createClass(SelectedClass, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        "div",
-        { className: "container" },
+        'div',
+        { className: 'container' },
+        _react2.default.createElement(_sidenav2.default, null),
         _react2.default.createElement(
-          "div",
-          { className: "row" },
+          'div',
+          { className: 'row' },
           _react2.default.createElement(
-            "div",
-            { className: "col-md-4 selected-class-col" },
+            'div',
+            { className: 'col-md-4 selected-class-col' },
             _react2.default.createElement(
-              "h2",
+              'h2',
               null,
-              "Topic"
+              'Topic'
             )
           ),
           _react2.default.createElement(
-            "div",
-            { className: "col-md-4 selected-class-col" },
+            'div',
+            { className: 'col-md-4 selected-class-col' },
             _react2.default.createElement(
-              "h2",
+              'h2',
               null,
-              "Topic"
+              'Topic'
             )
           ),
           _react2.default.createElement(
-            "div",
-            { className: "col-md-4 selected-class-col" },
+            'div',
+            { className: 'col-md-4 selected-class-col' },
             _react2.default.createElement(
-              "h2",
+              'h2',
               null,
-              "Topic"
+              'Topic'
             )
           )
         ),
         _react2.default.createElement(
-          "div",
-          { className: "row" },
+          'div',
+          { className: 'row' },
           _react2.default.createElement(
-            "div",
-            { className: "col-md-4 selected-class-col" },
+            'div',
+            { className: 'col-md-4 selected-class-col' },
             _react2.default.createElement(
-              "h2",
+              'h2',
               null,
-              "Topic"
+              'Topic'
             )
           ),
           _react2.default.createElement(
-            "div",
-            { className: "col-md-4 selected-class-col" },
+            'div',
+            { className: 'col-md-4 selected-class-col' },
             _react2.default.createElement(
-              "h2",
+              'h2',
               null,
-              "Topic"
+              'Topic'
             )
           ),
           _react2.default.createElement(
-            "div",
-            { className: "col-md-4 selected-class-col" },
+            'div',
+            { className: 'col-md-4 selected-class-col' },
             _react2.default.createElement(
-              "h2",
+              'h2',
               null,
-              "Topic"
+              'Topic'
             )
           )
         )
@@ -25600,7 +25612,7 @@ var SelectedClass = function (_Component) {
 exports.default = SelectedClass;
 
 /***/ }),
-/* 109 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25615,6 +25627,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _sidenav = __webpack_require__(115);
+
+var _sidenav2 = _interopRequireDefault(_sidenav);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25634,87 +25650,88 @@ var SelectedStudent = function (_Component) {
   }
 
   _createClass(SelectedStudent, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        "div",
+        'div',
         null,
+        _react2.default.createElement(_sidenav2.default, null),
         _react2.default.createElement(
-          "div",
-          { className: "container" },
+          'div',
+          { className: 'container' },
           _react2.default.createElement(
-            "div",
-            { className: "row" },
+            'div',
+            { className: 'row' },
             _react2.default.createElement(
-              "div",
-              { className: "col-md-4 class-tracker-col" },
+              'div',
+              { className: 'col-md-4 class-tracker-col' },
               _react2.default.createElement(
-                "h2",
+                'h2',
                 null,
-                "Class"
+                'Class'
               ),
               _react2.default.createElement(
-                "p",
+                'p',
                 null,
-                "Performance"
+                'Performance'
               ),
               _react2.default.createElement(
-                "h2",
+                'h2',
                 null,
-                "Topic"
+                'Topic'
               ),
               _react2.default.createElement(
-                "p",
+                'p',
                 null,
-                "Performance"
+                'Performance'
               )
             ),
             _react2.default.createElement(
-              "div",
-              { className: "col-md-4 class-tracker-col" },
+              'div',
+              { className: 'col-md-4 class-tracker-col' },
               _react2.default.createElement(
-                "h2",
+                'h2',
                 null,
-                "Class"
+                'Class'
               ),
               _react2.default.createElement(
-                "p",
+                'p',
                 null,
-                "Performance"
+                'Performance'
               ),
               _react2.default.createElement(
-                "h2",
+                'h2',
                 null,
-                "Topic"
+                'Topic'
               ),
               _react2.default.createElement(
-                "p",
+                'p',
                 null,
-                "Performance"
+                'Performance'
               )
             ),
             _react2.default.createElement(
-              "div",
-              { className: "col-md-4 class-tracker-col" },
+              'div',
+              { className: 'col-md-4 class-tracker-col' },
               _react2.default.createElement(
-                "h2",
+                'h2',
                 null,
-                "Class"
+                'Class'
               ),
               _react2.default.createElement(
-                "p",
+                'p',
                 null,
-                "Performance"
+                'Performance'
               ),
               _react2.default.createElement(
-                "h2",
+                'h2',
                 null,
-                "Topic"
+                'Topic'
               ),
               _react2.default.createElement(
-                "p",
+                'p',
                 null,
-                "Performance"
+                'Performance'
               )
             )
           )
@@ -25729,7 +25746,7 @@ var SelectedStudent = function (_Component) {
 exports.default = SelectedStudent;
 
 /***/ }),
-/* 110 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25765,11 +25782,11 @@ exports.default = SelectedStudent;
 
 
 /***/ }),
-/* 111 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(112);
+var content = __webpack_require__(111);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -25783,7 +25800,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(114)(content, options);
+var update = __webpack_require__(113)(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -25815,21 +25832,21 @@ if(false) {
 }
 
 /***/ }),
-/* 112 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(113)(false);
+exports = module.exports = __webpack_require__(112)(false);
 // imports
 
 
 // module
-exports.push([module.i, "body {\n  margin: 0;\n  padding: 0;\n  font-family: sans-serif;\n}\n\n.rowbanner {\n  border: solid rgb(11, 22, 241);\n  background-image: url(\"https://intownphotography.files.wordpress.com/2013/08/3119999-545079-abstract-light-blue-hand-drawn-pattern-waves-background-seamless-pattern-can-be-used-for-wallpaper-pattern-fills-web-page-background-surface-textures.jpeg\");\n  background-attachment: fixed;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  width: 100%;\n  text-align: center;\n}\n.App{\n  text-align: center;\n}\n.row {\n  padding: 2%;\n}\n\n.class-tracker-col {\n  height: 80vh;\n  border: black solid 2px;\n}\n\n.selected-class-col {\n  height: 40vh;\n  border: black solid 2px;\n}\n\n.linkbutton {\n  background:none!important;\n  color: #007bff;\n  border:none; \n  padding:0!important;\n  font: inherit;\n  /*border is optional*/\n  border-bottom:1px solid #444; \n  cursor: pointer;\n}", ""]);
+exports.push([module.i, "body {\n  margin: 0;\n  padding: 0;\n  background-image: url(\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkrAGG3cU6wmlDoJ_-vDeMhseNYr52dJJWzDiXDBxCnBjfMd69\");\n  background-attachment: fixed;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  font-family: sans-serif;\n}\n\n.rowbanner {\n  border: solid rgb(11, 22, 241);\n  background-color: #83d8ff;\n  /* background-image: url(\"https://intownphotography.files.wordpress.com/2013/08/3119999-545079-abstract-light-blue-hand-drawn-pattern-waves-background-seamless-pattern-can-be-used-for-wallpaper-pattern-fills-web-page-background-surface-textures.jpeg\"); */\n  background-attachment: fixed;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  width: 100%;\n  text-align: center;\n}\n\n.leftbanner {\n  float: top;\n}\n\n.middlebanner{\n  width: 80;\n  text-align: center;\n}\n\n.App{\n  text-align: center;\n}\n.row {\n  padding: 2%;\n}\n\n.login {\n  margin-top: 5%;\n}\n\n.class-tracker-col {\n  height: 80vh;\n  border: black solid 2px;\n}\n\n.selected-class-col {\n  height: 40vh;\n  border: black solid 2px;\n}\n\n.linkbutton {\n  margin-left: 10px;\n  background-color: blue;\n  color: white;\n  padding: 14px 25px;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n}\n\n/* .linkbuttonsidebar { */\n  /* background-color: blue;\n  color: white;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block; */\n/* } */\n\n.sidenav {\n  border: solid rgb(11, 22, 241);\n  margin-top: 4.75%;\n  height: 100%;\n  width: 175px;\n  position: fixed;\n  z-index: 1;\n  top: 0;\n  left: 0;\n  background-color: #83d8ff;\n  /* background-image: url(\"https://intownphotography.files.wordpress.com/2013/08/3119999-545079-abstract-light-blue-hand-drawn-pattern-waves-background-seamless-pattern-can-be-used-for-wallpaper-pattern-fills-web-page-background-surface-textures.jpeg\"); */\n  overflow-x: hidden;\n  padding-top: 20px;\n}\n\n.sidenav a {\n  padding: 6px 6px 6px 32px;\n  text-decoration: none;\n  font-size: 25px;\n  color: #818181;\n  display: block;\n}\n\n.sidenav a:hover {\n  color: #f1f1f1;\n}\n\n.main {\n  margin-left: 200px; /* Same as the width of the sidenav */\n}", ""]);
 
 // exports
 
 
 /***/ }),
-/* 113 */
+/* 112 */
 /***/ (function(module, exports) {
 
 /*
@@ -25911,7 +25928,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 114 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -25977,7 +25994,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(115);
+var	fixUrls = __webpack_require__(114);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -26293,7 +26310,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 115 */
+/* 114 */
 /***/ (function(module, exports) {
 
 
@@ -26386,6 +26403,91 @@ module.exports = function (css) {
 	return fixedCss;
 };
 
+
+/***/ }),
+/* 115 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(16);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Sidenav = function (_Component) {
+  _inherits(Sidenav, _Component);
+
+  function Sidenav(props) {
+    _classCallCheck(this, Sidenav);
+
+    return _possibleConstructorReturn(this, (Sidenav.__proto__ || Object.getPrototypeOf(Sidenav)).call(this, props));
+  }
+
+  _createClass(Sidenav, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'sidenav' },
+        _react2.default.createElement(
+          'h2',
+          null,
+          ' Classes '
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'linkbuttonsidebar' },
+          _react2.default.createElement(
+            'a',
+            { href: '#' },
+            'Biology'
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: '#' },
+            'Chemistry'
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: '#' },
+            'Physics'
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: '#' },
+            'English'
+          )
+        )
+      );
+    }
+  }]);
+
+  return Sidenav;
+}(_react.Component);
+
+exports.default = Sidenav;
+
+// <div class="main">
+//   <h2>View Here</h2>
+
+// </div>
 
 /***/ })
 /******/ ]);
