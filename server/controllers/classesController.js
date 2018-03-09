@@ -27,16 +27,8 @@ module.exports = {
   },
   fetchAllClasses: async (username) => {
     try {
-      let data = [];
-      let { id } = await Users.findOne({ where: { username: username } });
-      let followings = await FollowingsFollowers.findAll({ where: { follower_id: id } });
-      
-      for (let i = 0; i < followings.length; i++) {
-        let { dataValues } = await Users.findOne({ where: { id: followings[i].following_id } });
-        data.push(dataValues);
-      }
-      
-      return data;
+      let allClasses = await Classes.findAll({})   
+      return allClasses;
     } catch (err) {
       throw err;
     }
