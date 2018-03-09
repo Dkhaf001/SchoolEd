@@ -9,14 +9,14 @@ import Classtracker from './components/classtracker.js';
 import Selectedclass from './components/selectedclass.js';
 import Selectedstudent from './components/selectedstudent.js';
 import View from './View.js'
-import SelectedStudent from "./components/selectedstudent.js";
 import "./style.css";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-
+      auth: "false",
+      user: ""
     };
 
     this.onChangeHandler = this.onChangeHandler.bind(this);
@@ -50,7 +50,8 @@ class App extends Component {
         axios.get('/api/auth', { params: { email:this.state.email, password:this.state.password } })
         .then(()=> {
           this.setState({
-            auth: "true"
+            auth: "true",
+            user: this.state.email
           })
         })
       console.log('signing in');
@@ -66,6 +67,9 @@ class App extends Component {
       console.log('logout frontend logic');
       axios.delete('/api/')
       .then(() => {
+        this.setState({
+          auth: "false"
+        })
         console.log('session destroyed');
       }).catch( error => {
         console.log('session destroyed!');
@@ -84,15 +88,38 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Banner onClick={this.onClickHandler}/>
+          <Banner authed={this.state.auth} onClick={this.onClickHandler}/>
           <Switch>
           <Route
             path="/login"
             render={props => <Login change={this.onChangeHandler} click={this.onClickHandler} />}
           />
-          <Route path="/logout" component = {Home} />
-          <Route path="/class" component = {Selectedclass} />
-          <Route path="/students" component = {SelectedStudent} />
+          <Route authed={this.state.auth}
+           path="/class" 
+           render={props =>  (this.state.auth === "true") ? (
+            <Selectedclass {...props} />
+          ) : (
+            <Redirect
+              to={{
+                pathname: "/login",
+              }}
+            />
+          )
+        }
+      />
+          <Route authed={this.state.auth}
+           path="/students" 
+           render={props =>  (this.state.auth === "true") ? (
+            <Selectedstudent {...props} />
+          ) : (
+            <Redirect
+              to={{
+                pathname: "/login",
+              }}
+            />
+          )
+        }
+      />
           </Switch>
           <Testing />
         </div>

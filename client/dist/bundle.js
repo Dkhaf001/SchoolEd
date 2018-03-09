@@ -20518,7 +20518,10 @@ var App = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
 
-    _this.state = {};
+    _this.state = {
+      auth: "false",
+      user: ""
+    };
 
     _this.onChangeHandler = _this.onChangeHandler.bind(_this);
     _this.onClickHandler = _this.onClickHandler.bind(_this);
@@ -20553,7 +20556,8 @@ var App = function (_Component) {
         console.log('routing to /api/login');
         _axios2.default.get('/api/auth', { params: { email: this.state.email, password: this.state.password } }).then(function () {
           _this2.setState({
-            auth: "true"
+            auth: "true",
+            user: _this2.state.email
           });
         });
         console.log('signing in');
@@ -20567,6 +20571,9 @@ var App = function (_Component) {
       } else if (e.target.name === 'logout') {
         console.log('logout frontend logic');
         _axios2.default.delete('/api/').then(function () {
+          _this2.setState({
+            auth: "false"
+          });
           console.log('session destroyed');
         }).catch(function (error) {
           console.log('session destroyed!');
@@ -20589,7 +20596,7 @@ var App = function (_Component) {
         _react2.default.createElement(
           "div",
           { className: "App" },
-          _react2.default.createElement(_banner2.default, { onClick: this.onClickHandler }),
+          _react2.default.createElement(_banner2.default, { authed: this.state.auth, onClick: this.onClickHandler }),
           _react2.default.createElement(
             _reactRouterDom.Switch,
             null,
@@ -20599,9 +20606,26 @@ var App = function (_Component) {
                 return _react2.default.createElement(_login2.default, { change: _this3.onChangeHandler, click: _this3.onClickHandler });
               }
             }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: "/logout", component: _home2.default }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: "/class", component: _selectedclass2.default }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: "/students", component: _selectedstudent2.default })
+            _react2.default.createElement(_reactRouterDom.Route, { authed: this.state.auth,
+              path: "/class",
+              render: function render(props) {
+                return _this3.state.auth === "true" ? _react2.default.createElement(_selectedclass2.default, props) : _react2.default.createElement(_reactRouterDom.Redirect, {
+                  to: {
+                    pathname: "/login"
+                  }
+                });
+              }
+            }),
+            _react2.default.createElement(_reactRouterDom.Route, { authed: this.state.auth,
+              path: "/students",
+              render: function render(props) {
+                return _this3.state.auth === "true" ? _react2.default.createElement(_selectedstudent2.default, props) : _react2.default.createElement(_reactRouterDom.Redirect, {
+                  to: {
+                    pathname: "/login"
+                  }
+                });
+              }
+            })
           ),
           _react2.default.createElement(_testing2.default, null)
         )
