@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require('../db.js');
-const Lectures = require('./lectures.js');
+const Teachers = require('./teachers.js');
 //require topics
 
 const Classes = db.define('classes', {
@@ -10,6 +10,6 @@ const Classes = db.define('classes', {
   }
 });
 
-Classes.belongsTo(Lectures, { foreignKey: 'lecture_id' });
+Classes.belongsTo(Lectures, { foreignKey: 'teacber_id' });
 
 module.exports = Classes;

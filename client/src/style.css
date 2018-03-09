@@ -10,9 +10,9 @@ body {
 }
 
 .rowbanner {
-  border: solid rgb(11, 22, 241);
-  background-color: #83d8ff;
-  /* background-image: url("https://intownphotography.files.wordpress.com/2013/08/3119999-545079-abstract-light-blue-hand-drawn-pattern-waves-background-seamless-pattern-can-be-used-for-wallpaper-pattern-fills-web-page-background-surface-textures.jpeg"); */
+  /* border: solid rgb(11, 22, 241); */
+  /* background-color: #83d8ff; */
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkrAGG3cU6wmlDoJ_-vDeMhseNYr52dJJWzDiXDBxCnBjfMd69");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -70,16 +70,16 @@ body {
 /* } */
 
 .sidenav {
-  border: solid rgb(11, 22, 241);
-  margin-top: 4.75%;
+  /* border: solid rgb(11, 22, 241); */
+  /* margin-top: 4.75%; */
   height: 100%;
   width: 175px;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #83d8ff;
-  /* background-image: url("https://intownphotography.files.wordpress.com/2013/08/3119999-545079-abstract-light-blue-hand-drawn-pattern-waves-background-seamless-pattern-can-be-used-for-wallpaper-pattern-fills-web-page-background-surface-textures.jpeg"); */
+  /* background-color: #83d8ff; */
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkrAGG3cU6wmlDoJ_-vDeMhseNYr52dJJWzDiXDBxCnBjfMd69");
   overflow-x: hidden;
   padding-top: 20px;
 }

@@ -1,7 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require('../db.js');
-const Students = require('./students.js');
-const Quizzes = require('./quizzes.js');
+const Lectures = require('../models/lectures.js');
 
 const Topics = db.define('topics', {
   name: {
@@ -10,7 +9,6 @@ const Topics = db.define('topics', {
   }
 });
 
-Topics.belongsTo(Students, { foreignKey: 'student_id' });
-Topics.belongsTo(Quizzes, { foreignKey: 'quiz_id' });
+Topics.belongsTo(Lectures, { foreignKey: 'lecture_id' });
 
 module.exports = Topics;
