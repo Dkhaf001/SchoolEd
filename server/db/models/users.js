@@ -8,6 +8,7 @@ const Users = db.define('users', {
   //     unique: true,
   //     allowNull: false
   // },
+  type: Sequelize.INTEGER,
   email: {
       type: Sequelize.STRING,
       unique: true,

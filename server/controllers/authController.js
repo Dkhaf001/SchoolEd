@@ -11,15 +11,19 @@ module.exports = {
       if (!isCorrect) {
         throw null;
       }
+
+      return user.type;
     } catch (err) {
       throw err;
     }
   },
-  signup: async ({ email, password }) => {
+  signup: async ({ email, password, type }) => {
     try {
+      console.log('we are inside signup!!!!!!');
       Users.create({
         email: email,
-        password: password
+        password: password,
+        type: type
       });
     } catch (err) {
       throw err;

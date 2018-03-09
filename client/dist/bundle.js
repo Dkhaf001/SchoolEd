@@ -3120,8 +3120,17 @@ var Login = function (_Component) {
           { to: '/' },
           _react2.default.createElement(
             'button',
-            { name: 'create', onClick: this.props.click },
-            'Create Account'
+            { name: 'createstudent', onClick: this.props.click },
+            'Create Student'
+          )
+        ),
+        _react2.default.createElement(
+          _reactRouterDom.Link,
+          { to: '/' },
+          _react2.default.createElement(
+            'button',
+            { name: 'createteacher', onClick: this.props.click },
+            'Create Teacher'
           )
         )
       );
@@ -20554,17 +20563,26 @@ var App = function (_Component) {
 
       if (e.target.name === "signin") {
         console.log('routing to /api/login');
-        _axios2.default.get('/api/auth', { params: { email: this.state.email, password: this.state.password } }).then(function () {
+        _axios2.default.get('/api/auth', { params: { email: this.state.email, password: this.state.password } }).then(function (type) {
+          console.log(type);
           _this2.setState({
+            type: type,
             auth: "true",
             user: _this2.state.email
           });
         });
         console.log('signing in');
-      } else if (e.target.name === 'create') {
+      } else if (e.target.name === 'createstudent') {
         //axios request to controller to handle create
         console.log('username: ', this.state.email, 'password: ', this.state.password);
-        _axios2.default.post('/api/auth', { email: this.state.email, password: this.state.password }).then(function () {
+        _axios2.default.post('/api/auth', { email: this.state.email, password: this.state.password, type: 0 }).then(function () {
+
+          console.log('creating');
+        });
+      } else if (e.target.name === 'createteacher') {
+        //axios request to controller to handle create
+        console.log('username: ', this.state.email, 'password: ', this.state.password);
+        _axios2.default.post('/api/auth', { email: this.state.email, password: this.state.password, type: 1 }).then(function () {
 
           console.log('creating');
         });

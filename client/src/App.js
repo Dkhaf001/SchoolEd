@@ -48,21 +48,31 @@ class App extends Component {
     if (e.target.name === "signin") {
         console.log('routing to /api/login');
         axios.get('/api/auth', { params: { email:this.state.email, password:this.state.password } })
-        .then(()=> {
+        .then((type)=> {
+          console.log(type);
           this.setState({
+            type: type,
             auth: "true",
             user: this.state.email
           })
         })
       console.log('signing in');
-    } else if (e.target.name === 'create') {
+    } else if (e.target.name === 'createstudent') {
        //axios request to controller to handle create
        console.log('username: ', this.state.email, 'password: ', this.state.password);
-       axios.post('/api/auth', { email:this.state.email, password:this.state.password })
+       axios.post('/api/auth', { email:this.state.email, password:this.state.password, type:0 })
        .then(() => {
          
          console.log('creating');
        })
+    } else if (e.target.name === 'createteacher') {
+        //axios request to controller to handle create
+        console.log('username: ', this.state.email, 'password: ', this.state.password);
+        axios.post('/api/auth', { email:this.state.email, password:this.state.password, type:1 })
+        .then(() => {
+          
+          console.log('creating');
+        })
     } else if (e.target.name === 'logout') {
       console.log('logout frontend logic');
       axios.delete('/api/')

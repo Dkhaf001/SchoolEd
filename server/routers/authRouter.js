@@ -13,10 +13,11 @@ router.route('/')
   })
   .get(async (req, res) => {
     try {
-      await authController.login(req.query);
+      let type = await authController.login(req.query);
       req.session[req.query.email] = true; //req.query grabs from params passed in
       console.log(req.session);
-      res.sendStatus(200);
+      type = '' + type;
+      res.send(type);
     } catch (err) {
       res.sendStatus(500);
     }

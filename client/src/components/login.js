@@ -28,8 +28,10 @@ class Login extends Component {
         <br />
         <input type="password" name="password" placeholder="Password" onChange={this.props.change} />
         <br />
+        
         <Link to="/"><button name="signin" onClick={this.props.click}>Sign In</button></Link>
-        <Link to="/"><button name="create" onClick={this.props.click}>Create Account</button></Link>
+        <Link to="/"><button name="createstudent" onClick={this.props.click}>Create Student</button></Link>
+        <Link to="/"><button name="createteacher" onClick={this.props.click}>Create Teacher</button></Link>
       </div>
     );
   }

@@ -1,36 +1,36 @@
 [
   {
-    "name": "Intro to adwda",
+    "name": "Mrs. Fields",
     "class_id": 2,
     "school_id": 1
   },
   {
-    "name": "Intro to adwdaadwad",
+    "name": "Mr. Bob",
     "class_id": 3,
     "school_id": 1
   },
   {
-    "name": "Intro to dwdd",
+    "name": "Mrs. Parker",
     "class_id": 4,
     "school_id": 2
   },
   {
-    "name": "Intro to piggy",
+    "name": "Mr. Science",
     "class_id": 3,
     "school_id": 3
   },
   {
-    "name": "Intro to cookie",
+    "name": "Mr. Cookie",
     "class_id": 1,
     "school_id": 4
   },
   {
-    "name": "Intro to human anatomy",
+    "name": "Mrs. Cookie",
     "class_id": 1,
     "school_id": 5
   },
   {
-    "name": "Intro to genetics",
+    "name": "Albert Einstein",
     "class_id": 3,
     "school_id": 6
   }
