@@ -17,6 +17,7 @@ class Banner extends Component {
           <Link to="/class"> Classes </Link>
           <Link to="/students"> Students </Link>
           <Link to="/login"> Login </Link>
+          <Link to="/logintwo"> Logintwo </Link>
           <button className="linkbutton" name="logout" onClick={this.props.onClick}> Logout </button>
           {console.log(this.props)}
           

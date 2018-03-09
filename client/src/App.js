@@ -90,6 +90,10 @@ class App extends Component {
         <div className="App">
           <Banner authed={this.state.auth} onClick={this.onClickHandler}/>
           <Switch>
+          {/* <Route
+            path="/logintwo"
+            render={props => <Classtracker change={this.onChangeHandler} click={this.onClickHandler} />}
+          /> */}
           <Route
             path="/login"
             render={props => <Login change={this.onChangeHandler} click={this.onClickHandler} />}

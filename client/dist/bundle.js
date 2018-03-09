@@ -25352,6 +25352,11 @@ var Banner = function (_Component) {
           ' Login '
         ),
         _react2.default.createElement(
+          _reactRouterDom.Link,
+          { to: '/logintwo' },
+          ' Logintwo '
+        ),
+        _react2.default.createElement(
           'button',
           { className: 'linkbutton', name: 'logout', onClick: this.props.onClick },
           ' Logout '
@@ -25372,156 +25377,96 @@ exports.default = Banner;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+// import React, { Component } from 'react';
+// import {
+//   BrowserRouter as Router,
+//   Route,
+//   Link,
+//   Switch,
+//   Redirect
+// } from "react-router-dom";
+
+// class Classtracker extends Component {
+//   constructor(props) {
+//     super(props);
+
+//     this.state = {
+//       email: '',
+//       password: '',
+//     }
+//   }
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+//   render() {
+//     return (
+//       <div>
+//         <h1 style={{ 'textAlign': 'center' }}>Class Tracker</h1>
+//         <div className="container">
+//           <div className="row">
+//             <div className="col-md-6 class-tracker-col">
+//               <h2>Login</h2>
+//               <form>
+//                 <div className="form-group">
+//                   <label>Email address</label>
+//                   <input
+//                     type="email"
+//                     className="form-control"
+//                     aria-describedby="emailHelp"
+//                     placeholder="Enter email"
+//                     onChange={this.props.change}
+//                   />
+//                 </div>
+//                 <div className="form-group">
+//                   <label>Password</label>
+//                   <input
+//                     type="password"
+//                     className="form-control"
+//                     placeholder="Password"
+//                     onChange={this.props.change}
+//                   />
+//                 </div>
+//                 <Link to="/logintwo"><button type="submit" className="signin" onClick={this.props.click} >
+//                   Submit
+//                 </button></Link>
+//               </form>
+//             </div>
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+//             <div className="col-md-6 class-tracker-col">
+//               <h2>Signup</h2>
+//               <form>
+//                 <div className="form-group">
+//                   <label>Email address</label>
+//                   <input
+//                     type="email"
+//                     className="form-control"
+//                     aria-describedby="emailHelp"
+//                     placeholder="Enter email"
+//                     onChange={this.props.change}
+//                   />
+//                 </div>
+//                 <div className="form-group">
+//                   <label>Password</label>
+//                   <input
+//                     type="password"
+//                     className="form-control"
+//                     placeholder="Password"
+//                     onChange={this.props.change}
+//                   />
+//                 </div>
+//                 <Link to="/createtwo"><button type="submit" className="create" onClick={this.props.click} >
+//                   Submit
+//                 </button></Link>
+//               </form>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     );
+//   }
+// }
 
-var _react = __webpack_require__(0);
+// export default Classtracker;
 
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var ClassTracker = function (_Component) {
-  _inherits(ClassTracker, _Component);
-
-  function ClassTracker() {
-    _classCallCheck(this, ClassTracker);
-
-    return _possibleConstructorReturn(this, (ClassTracker.__proto__ || Object.getPrototypeOf(ClassTracker)).apply(this, arguments));
-  }
-
-  _createClass(ClassTracker, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          'h1',
-          { style: { 'text-align': 'center' } },
-          'Class Tracker'
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'container' },
-          _react2.default.createElement(
-            'div',
-            { className: 'row' },
-            _react2.default.createElement(
-              'div',
-              { className: 'col-md-6 class-tracker-col' },
-              _react2.default.createElement(
-                'h2',
-                null,
-                'Login'
-              ),
-              _react2.default.createElement(
-                'form',
-                null,
-                _react2.default.createElement(
-                  'div',
-                  { 'class': 'form-group' },
-                  _react2.default.createElement(
-                    'label',
-                    null,
-                    'Email address'
-                  ),
-                  _react2.default.createElement('input', {
-                    type: 'email',
-                    'class': 'form-control',
-                    'aria-describedby': 'emailHelp',
-                    placeholder: 'Enter email'
-                  })
-                ),
-                _react2.default.createElement(
-                  'div',
-                  { 'class': 'form-group' },
-                  _react2.default.createElement(
-                    'label',
-                    null,
-                    'Password'
-                  ),
-                  _react2.default.createElement('input', {
-                    type: 'password',
-                    'class': 'form-control',
-                    placeholder: 'Password'
-                  })
-                ),
-                _react2.default.createElement(
-                  'button',
-                  { type: 'submit', 'class': 'btn btn-primary' },
-                  'Submit'
-                )
-              )
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'col-md-6 class-tracker-col' },
-              _react2.default.createElement(
-                'h2',
-                null,
-                'Signup'
-              ),
-              _react2.default.createElement(
-                'form',
-                null,
-                _react2.default.createElement(
-                  'div',
-                  { 'class': 'form-group' },
-                  _react2.default.createElement(
-                    'label',
-                    null,
-                    'Email address'
-                  ),
-                  _react2.default.createElement('input', {
-                    type: 'email',
-                    'class': 'form-control',
-                    'aria-describedby': 'emailHelp',
-                    placeholder: 'Enter email'
-                  })
-                ),
-                _react2.default.createElement(
-                  'div',
-                  { 'class': 'form-group' },
-                  _react2.default.createElement(
-                    'label',
-                    null,
-                    'Password'
-                  ),
-                  _react2.default.createElement('input', {
-                    type: 'password',
-                    'class': 'form-control',
-                    placeholder: 'Password'
-                  })
-                ),
-                _react2.default.createElement(
-                  'button',
-                  { type: 'submit', 'class': 'btn btn-primary' },
-                  'Submit'
-                )
-              )
-            )
-          )
-        )
-      );
-    }
-  }]);
-
-  return ClassTracker;
-}(_react.Component);
-
-exports.default = ClassTracker;
 
 /***/ }),
 /* 108 */
