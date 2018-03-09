@@ -20580,14 +20580,28 @@ var App = function (_Component) {
         //axios request to controller to handle create
         console.log('username: ', this.state.email, 'password: ', this.state.password);
         _axios2.default.post('/api/auth', { email: this.state.email, password: this.state.password, type: 0 }).then(function () {
-          _axios2.default.post('/api/student', { email: _this2.state.email }).then(function () {});
+          _axios2.default.get('/api/auth', { params: { email: _this2.state.email, password: _this2.state.password } }).then(function (type) {
+            console.log(type);
+            _this2.setState({
+              type: type,
+              auth: "true",
+              user: _this2.state.email
+            });
+          });
           console.log('creating');
         });
       } else if (e.target.name === 'createteacher') {
         //axios request to controller to handle create
         console.log('username: ', this.state.email, 'password: ', this.state.password);
         _axios2.default.post('/api/auth', { email: this.state.email, password: this.state.password, type: 1 }).then(function () {
-          _axios2.default.post('/api/teacher', { email: _this2.state.email }).then(function () {});
+          _axios2.default.get('/api/auth', { params: { email: _this2.state.email, password: _this2.state.password } }).then(function (type) {
+            console.log(type);
+            _this2.setState({
+              type: type,
+              auth: "true",
+              user: _this2.state.email
+            });
+          });
           console.log('creating');
         });
       } else if (e.target.name === 'logout') {

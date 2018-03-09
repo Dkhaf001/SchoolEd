@@ -63,10 +63,15 @@ class App extends Component {
        console.log('username: ', this.state.email, 'password: ', this.state.password);
        axios.post('/api/auth', { email:this.state.email, password:this.state.password, type:0 })
        .then(() => {
-         axios.post('/api/student', { email: this.state.email })
-         .then(() => {
-           
-         })
+        axios.get('/api/auth', { params: { email:this.state.email, password:this.state.password } })
+        .then((type)=> {
+          console.log(type);
+          this.setState({
+            type: type,
+            auth: "true",
+            user: this.state.email
+          })
+        })
          console.log('creating');
        })
     } else if (e.target.name === 'createteacher') {
@@ -74,8 +79,14 @@ class App extends Component {
         console.log('username: ', this.state.email, 'password: ', this.state.password);
         axios.post('/api/auth', { email:this.state.email, password:this.state.password, type:1 })
         .then(() => {
-          axios.post('/api/teacher', { email:this.state.email})
-          .then(() => {
+          axios.get('/api/auth', { params: { email:this.state.email, password:this.state.password } })
+        .then((type)=> {
+          console.log(type);
+          this.setState({
+            type: type,
+            auth: "true",
+            user: this.state.email
+          })
             
           })
           console.log('creating');
