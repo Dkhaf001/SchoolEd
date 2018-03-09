@@ -68,7 +68,8 @@ class App extends Component {
       axios.delete('/api/')
       .then(() => {
         this.setState({
-          auth: "false"
+          auth: "false",
+          user: ""
         })
         console.log('session destroyed');
       }).catch( error => {
@@ -88,7 +89,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Banner authed={this.state.auth} onClick={this.onClickHandler}/>
+          <Banner authed={this.state.auth} user={this.state.user} onClick={this.onClickHandler}/>
           <Switch>
           {/* <Route
             path="/logintwo"

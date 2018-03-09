@@ -20572,7 +20572,8 @@ var App = function (_Component) {
         console.log('logout frontend logic');
         _axios2.default.delete('/api/').then(function () {
           _this2.setState({
-            auth: "false"
+            auth: "false",
+            user: ""
           });
           console.log('session destroyed');
         }).catch(function (error) {
@@ -20596,7 +20597,7 @@ var App = function (_Component) {
         _react2.default.createElement(
           "div",
           { className: "App" },
-          _react2.default.createElement(_banner2.default, { authed: this.state.auth, onClick: this.onClickHandler }),
+          _react2.default.createElement(_banner2.default, { authed: this.state.auth, user: this.state.user, onClick: this.onClickHandler }),
           _react2.default.createElement(
             _reactRouterDom.Switch,
             null,
@@ -25337,6 +25338,12 @@ var Banner = function (_Component) {
         'div',
         { className: 'rowbanner' },
         _react2.default.createElement(
+          'p',
+          null,
+          this.props.user
+        ),
+        console.log(this.props.user),
+        _react2.default.createElement(
           _reactRouterDom.Link,
           { to: '/class' },
           ' Classes '
@@ -25350,11 +25357,6 @@ var Banner = function (_Component) {
           _reactRouterDom.Link,
           { to: '/login' },
           ' Login '
-        ),
-        _react2.default.createElement(
-          _reactRouterDom.Link,
-          { to: '/logintwo' },
-          ' Logintwo '
         ),
         _react2.default.createElement(
           'button',

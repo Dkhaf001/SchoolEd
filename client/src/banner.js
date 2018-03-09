@@ -12,12 +12,13 @@ class Banner extends Component {
   render() {
     return (
       <div className="rowbanner">
-        
+          <p>{this.props.user}</p>
+          {console.log(this.props.user)}
           {/* <Link to="/"> Home </Link> */}
           <Link to="/class"> Classes </Link>
           <Link to="/students"> Students </Link>
           <Link to="/login"> Login </Link>
-          <Link to="/logintwo"> Logintwo </Link>
+          {/* <Link to="/logintwo"> Logintwo </Link> */}
           <button className="linkbutton" name="logout" onClick={this.props.onClick}> Logout </button>
           {console.log(this.props)}
           
