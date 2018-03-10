@@ -23,7 +23,7 @@ module.exports = {
   },
   removeQuiz: async ({ name }) => {
     try {
-      let destroyed = await Topics.destroy({
+      let destroyed = await Quizzes.destroy({
         where: {
           name: name
         }

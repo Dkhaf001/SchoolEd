@@ -1,11 +1,17 @@
 const router = require('express').Router();
 const classesRouter = require('./routers/classesRouter.js');
+const quizzesRouter = require('./routers/quizzesRouter.js');
+const lecturesRouter = require('./routers/lecturesRouter.js');
+const topicsRouter = require('./routers/topicsRouter.js');
 const Users = require('./db/models/users.js');
 const path = require('path');
 const authRouter = require('./routers/authRouter');
 
 router.use('/auth', authRouter);
 router.use('/class', classesRouter);
+router.use('/lecture', lecturesRouter);
+router.use('/topic', topicsRouter);
+router.use('/quiz', quizzesRouter);
 
 var sessionChecker = (req, res, next) => {
     if (!(req.session && req.session.user)) {

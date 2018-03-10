@@ -25528,6 +25528,12 @@ var _sidenav = __webpack_require__(115);
 
 var _sidenav2 = _interopRequireDefault(_sidenav);
 
+var _reactRouterDom = __webpack_require__(16);
+
+var _axios = __webpack_require__(85);
+
+var _axios2 = _interopRequireDefault(_axios);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25542,16 +25548,45 @@ var SelectedClass = function (_Component) {
   function SelectedClass(props) {
     _classCallCheck(this, SelectedClass);
 
-    return _possibleConstructorReturn(this, (SelectedClass.__proto__ || Object.getPrototypeOf(SelectedClass)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (SelectedClass.__proto__ || Object.getPrototypeOf(SelectedClass)).call(this, props));
+
+    _this.state = {
+      classes: [],
+      rendering: ''
+    };
+    // this.handleClick = this.handleClick.bind(this);
+    return _this;
   }
 
   _createClass(SelectedClass, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      _axios2.default.get('/api/class', { params: { email: this.props.user, type: this.props.type } }).then(function (_ref) {
+        var data = _ref.data;
+
+        _this2.setState({ classes: data });
+      }).catch(function () {
+        console.log('error');
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'container' },
-        _react2.default.createElement(_sidenav2.default, { authed: this.props.auth, user: this.props.user, type: this.props.type })
+        null,
+        _react2.default.createElement(
+          'p',
+          null,
+          'Render Classes Here'
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'container' },
+          _react2.default.createElement(_sidenav2.default, { authed: this.props.auth, user: this.props.user, type: this.props.type })
+        )
       );
     }
   }]);
