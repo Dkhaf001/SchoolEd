@@ -25768,7 +25768,7 @@ var SelectedClass = function (_Component) {
                 topics: topicsList
               });
             }
-            console.log(_this2.state);
+            console.log('the state is ', _this2.state);
           });
         }
       }).catch(function () {
@@ -25797,10 +25797,11 @@ var SelectedClass = function (_Component) {
               {
                 onClick: _this3.handleClick,
                 value: aclass.name,
-                className: "classlist",
-                style: { width: 110 },
-                key: key
+                className: "classlist"
+                // style={{ width: 110 }}
+                , key: key
               },
+              "Class Name : ",
               aclass.name,
               '  ',
               console.log(_this3.state.lectures),
@@ -25810,11 +25811,11 @@ var SelectedClass = function (_Component) {
                   {
                     onClick: _this3.handleClick,
                     value: alecture.name,
-                    className: "lecturelist",
-                    style: { width: 110 },
-                    key: key
+                    className: "lecturelist"
+                    // style={{ width: 110 }}
+                    , key: key
                   },
-                  alecture[0].class_id === aclass.id ? alecture[0].name : null,
+                  alecture[0].class_id === aclass.id ? "Lecture : " + alecture[0].name : null,
                   '  ',
                   _this3.state.topics && _this3.state.topics.map(function (atopic, key) {
                     return _react2.default.createElement(
@@ -25822,12 +25823,12 @@ var SelectedClass = function (_Component) {
                       {
                         onClick: _this3.handleClick,
                         value: atopic.name,
-                        className: "topiclist",
-                        style: { width: 110 },
-                        key: key
+                        className: "topiclist"
+                        // style={{ width: 110 }}
+                        , key: key
                       },
-                      atopic.name,
-                      console.log(atopic.name)
+                      "Topic : ",
+                      atopic[0].lecture_id === alecture.id ? atopic[0].name : null
                     );
                   })
                 );
@@ -26081,7 +26082,7 @@ exports = module.exports = __webpack_require__(114)(false);
 
 
 // module
-exports.push([module.i, "body {\n  margin: 0;\n  padding: 0;\n  background-image: url(\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkrAGG3cU6wmlDoJ_-vDeMhseNYr52dJJWzDiXDBxCnBjfMd69\");\n  background-attachment: fixed;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  font-family: sans-serif;\n}\n\n.rowbanner {\n  /* border: solid rgb(11, 22, 241); */\n  /* background-color: #83d8ff; */\n  background-image: url(\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkrAGG3cU6wmlDoJ_-vDeMhseNYr52dJJWzDiXDBxCnBjfMd69\");\n  background-attachment: fixed;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  width: 100%;\n  text-align: center;\n}\n\n.leftbanner {\n  float: top;\n}\n\n.middlebanner{\n  width: 80;\n  text-align: center;\n}\n\n.App{\n  text-align: center;\n}\n.row {\n  padding: 2%;\n}\n\n.login {\n  margin-top: 5%;\n}\n\n.class-tracker-col {\n  height: 80vh;\n  border: black solid 2px;\n}\n\n.selected-class-col {\n  height: 40vh;\n  border: black solid 2px;\n}\n\n.classlist {\n  padding-left: 10%;\n  padding-top: 5%;\n}\n\n.linkbutton {\n  height: 50px;\n  width: 110px;\n  margin-left: 10px !important;\n  background-color: blue !important;\n  color: white !important;\n  padding: 14px 25px !important;\n  text-align: center !important;\n  text-decoration: none !important;\n  display: inline-block !important;\n}\n\n/* .linkbuttonsidebar { */\n  /* background-color: blue;\n  color: white;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block; */\n/* } */\n.topmargin {\n  margin-top: 2%;\n}\n.sidenav {\n  /* border: solid rgb(11, 22, 241); */\n  /* margin-top: 4.75%; */\n  height: 100%;\n  width: 175px;\n  position: fixed;\n  z-index: 1;\n  top: 0;\n  left: 0;\n  /* background-color: #83d8ff; */\n  background-image: url(\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkrAGG3cU6wmlDoJ_-vDeMhseNYr52dJJWzDiXDBxCnBjfMd69\");\n  overflow-x: hidden;\n  padding-top: 20px;\n}\n\n.sidenav a {\n  padding: 6px 6px 6px 32px;\n  text-decoration: none;\n  font-size: 25px;\n  color: #818181;\n  display: block;\n}\n\n.sidenav a:hover {\n  color: #f1f1f1;\n}\n\n.main {\n  margin-left: 200px; /* Same as the width of the sidenav */\n}", ""]);
+exports.push([module.i, "body {\n  margin: 0;\n  padding: 0;\n  background-image: url(\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkrAGG3cU6wmlDoJ_-vDeMhseNYr52dJJWzDiXDBxCnBjfMd69\");\n  background-attachment: fixed;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  font-family: sans-serif;\n}\n\n.rowbanner {\n  /* border: solid rgb(11, 22, 241); */\n  /* background-color: #83d8ff; */\n  background-image: url(\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkrAGG3cU6wmlDoJ_-vDeMhseNYr52dJJWzDiXDBxCnBjfMd69\");\n  background-attachment: fixed;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  width: 100%;\n  text-align: center;\n}\n\n.leftbanner {\n  float: top;\n}\n\n.middlebanner{\n  width: 80;\n  text-align: center;\n}\n\n.App{\n  text-align: center;\n}\n.row {\n  padding: 2%;\n}\n\n.login {\n  margin-top: 5%;\n}\n\n.class-tracker-col {\n  height: 80vh;\n  border: black solid 2px;\n}\n\n.selected-class-col {\n  height: 40vh;\n  border: black solid 2px;\n}\n\n.classlist {\n  padding-left: 5%;\n  padding-top: 5%;\n}\n\n.linkbutton {\n  height: 50px;\n  width: 110px;\n  margin-left: 10px !important;\n  background-color: blue !important;\n  color: white !important;\n  padding: 14px 25px !important;\n  text-align: center !important;\n  text-decoration: none !important;\n  display: inline-block !important;\n}\n\n/* .linkbuttonsidebar { */\n  /* background-color: blue;\n  color: white;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block; */\n/* } */\n.topmargin {\n  margin-top: 2%;\n}\n.sidenav {\n  /* border: solid rgb(11, 22, 241); */\n  /* margin-top: 4.75%; */\n  height: 100%;\n  width: 175px;\n  position: fixed;\n  z-index: 1;\n  top: 0;\n  left: 0;\n  /* background-color: #83d8ff; */\n  background-image: url(\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkrAGG3cU6wmlDoJ_-vDeMhseNYr52dJJWzDiXDBxCnBjfMd69\");\n  overflow-x: hidden;\n  padding-top: 20px;\n}\n\n.sidenav a {\n  padding: 6px 6px 6px 32px;\n  text-decoration: none;\n  font-size: 25px;\n  color: #818181;\n  display: block;\n}\n\n.sidenav a:hover {\n  color: #f1f1f1;\n}\n\n.main {\n  margin-left: 200px; /* Same as the width of the sidenav */\n}", ""]);
 
 // exports
 

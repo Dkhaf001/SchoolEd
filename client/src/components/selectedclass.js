@@ -47,7 +47,7 @@ export default class SelectedClass extends Component {
                         topics: topicsList
                       });
               }
-              console.log(this.state);
+              console.log('the state is ',this.state);
               
             });
         }
@@ -68,10 +68,10 @@ export default class SelectedClass extends Component {
                 onClick={this.handleClick}
                 value={aclass.name}
                 className="classlist"
-                style={{ width: 110 }}
+                // style={{ width: 110 }}
                 key={key}
               >
-                {aclass.name}
+                Class Name : {aclass.name}
                 {'  '}
                 {console.log(this.state.lectures)}
                 {this.state.lectures && this.state.lectures.map((alecture, key) => (
@@ -80,22 +80,22 @@ export default class SelectedClass extends Component {
                     onClick={this.handleClick}
                     value={alecture.name}
                     className="lecturelist"
-                    style={{ width: 110 }}
+                    // style={{ width: 110 }}
                     key={key}
                   >
                   
-                  {alecture[0].class_id === aclass.id ? alecture[0].name : null}
+                  {alecture[0].class_id === aclass.id ? `Lecture : ${alecture[0].name}` : null}
                   {'  '}
                   {this.state.topics && this.state.topics.map((atopic, key) => (
                     <div
                     onClick={this.handleClick}
                     value={atopic.name}
                     className="topiclist"
-                    style={{ width: 110 }}
+                    // style={{ width: 110 }}
                     key={key}
                   >
-                  {atopic.name}
-                  {console.log(atopic.name)}
+                  Topic : {atopic[0].lecture_id === alecture.id ? atopic[0].name : null}
+                
                   </div>
                   ))}
                   </div>
