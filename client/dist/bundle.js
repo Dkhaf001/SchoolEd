@@ -26470,10 +26470,12 @@ var Sidenav = function (_Component) {
 
   _createClass(Sidenav, [{
     key: 'handleClick',
-    value: function handleClick(event) {
+    value: function handleClick(e) {
       this.setState({
         rendering: e.target.value
       });
+      console.log(e.target.value);
+      console.log(this.state);
     }
   }, {
     key: 'componentDidMount',
@@ -26507,7 +26509,7 @@ var Sidenav = function (_Component) {
           this.state.classes.map(function (aclass, key) {
             return _react2.default.createElement(
               'button',
-              { onClick: _this3.handleClick, className: 'linkbutton', style: { width: 110 }, key: key },
+              { onClick: _this3.handleClick, value: aclass.name, className: 'linkbutton', style: { width: 110 }, key: key },
               aclass.name
             );
           })

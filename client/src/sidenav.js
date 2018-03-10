@@ -16,10 +16,12 @@ class Sidenav extends Component {
   }
 
 
-  handleClick(event) {
+  handleClick(e) {
     this.setState({
       rendering: e.target.value
     })
+    console.log(e.target.value);
+    console.log(this.state);
   }
 
   componentDidMount() {
@@ -39,7 +41,7 @@ class Sidenav extends Component {
       <h2> Classes </h2>
       <div className="linkbuttonsidebar">
       {this.state.classes.map((aclass, key) =>
-         <button onClick={this.handleClick} className="linkbutton" style={{width: 110}} key={key}>{aclass.name}</button>
+         <button onClick={this.handleClick} value={aclass.name} className="linkbutton" style={{width: 110}} key={key}>{aclass.name}</button>
       )}
       </div>
     </div>
