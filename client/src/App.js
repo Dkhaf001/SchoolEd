@@ -157,7 +157,7 @@ class App extends Component {
         }
       />
           </Switch>
-          <Testing />
+          {/* <Testing /> */}
         </div>
       </Router>
     );

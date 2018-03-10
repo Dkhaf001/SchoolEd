@@ -8,7 +8,7 @@
     "class_id": 3
   },
   {
-    "student_id": 3,
+    "student_id": 2,
     "class_id": 4
   },
   {
@@ -20,11 +20,11 @@
     "class_id": 1
   },
   {
-    "student_id": 1,
+    "student_id": 2,
     "class_id": 1
   },
   {
     "student_id": 2,
-    "class_id": 4
+    "class_id": 5
   }
 ]

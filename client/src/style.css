@@ -51,6 +51,11 @@ body {
   border: black solid 2px;
 }
 
+.classlist {
+  padding-left: 10%;
+  padding-top: 5%;
+}
+
 .linkbutton {
   height: 50px;
   width: 110px;
@@ -70,7 +75,9 @@ body {
   text-decoration: none;
   display: inline-block; */
 /* } */
-
+.topmargin {
+  margin-top: 2%;
+}
 .sidenav {
   /* border: solid rgb(11, 22, 241); */
   /* margin-top: 4.75%; */

@@ -15,7 +15,9 @@ module.exports = {
   fetchAllTopics: async ({ lecture_id }) => {
     try {
         // let topics = [];
+        console.log('before topics');
         let topics = await Lectures.findAll({ where: { id: lecture_id }});
+        console.log('after topics', topics);
         return topics;     
     } catch (err) {
       throw err;

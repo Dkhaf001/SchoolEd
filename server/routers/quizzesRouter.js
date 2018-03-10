@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const quizzesController = require('../quizzesController.js');
+const quizzesController = require('../controllers/quizzesController.js');
 
 router.route('/')
   .post(async (req, res) => {

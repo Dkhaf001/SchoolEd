@@ -16,7 +16,8 @@ class Banner extends Component {
           {console.log(this.props.user)}
           <div className="middlebanner">
           <Link to="/class" className="linkbutton"> Classes </Link>
-          <Link to="/students" className="linkbutton"> Students </Link>
+          <Link to="/students" className="linkbutton"> Profile </Link>
+          <Link to="/catalog" className="linkbutton"> Catalog </Link>
           <LoginLogout onClick={this.props.onClick} authed={this.props.auth} user={this.props.user} type={this.props.type} />
           {/* <Link to="/login" className="linkbutton"> Login </Link>
           <button className="linkbutton" name="logout" onClick={this.props.onClick}> Logout </button> */}

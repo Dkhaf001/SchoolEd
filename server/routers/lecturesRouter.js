@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const lecturesController = require('../lecturesController.js');
+const lecturesController = require('../controllers/lecturesController.js');
 
 router.route('/')
   .post(async (req, res) => {
@@ -12,6 +12,7 @@ router.route('/')
   })
   .get(async (req, res) => {
     try {
+      console.log('in get for lecture');
       let allLectures = await lecturesController.fetchAllLectures(req.query);
 
       res.send(allLectures);  

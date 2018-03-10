@@ -15,8 +15,8 @@ module.exports = {
   fetchAllLectures: async ({ class_id }) => {
     try {
         // let lectures = [];
-        let classes = await Classes.findAll({ where: { id: class_id }});
-        return classes;     
+        let lectures = await Lectures.findAll({ where: { id: class_id }});
+        return lectures;     
     } catch (err) {
       throw err;
     }
