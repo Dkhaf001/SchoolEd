@@ -9,6 +9,7 @@ class Testing extends Component {
     return (
       <div className="login">
       <h1><strong>Welcome To SchoolEd</strong></h1>
+      {/* <h1><strong>Log In To View Account</strong></h1> */}
       </div>
     );
   }

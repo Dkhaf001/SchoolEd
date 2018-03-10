@@ -49,10 +49,10 @@ class App extends Component {
     if (e.target.name === "signin") {
         console.log('routing to /api/login');
         axios.get('/api/auth', { params: { email:this.state.email, password:this.state.password } })
-        .then((type)=> {
-          console.log(type);
+        .then(({data})=> {
+          console.log(data);
           this.setState({
-            type: type,
+            type: data,
             auth: "true",
             user: this.state.email
           })
@@ -78,19 +78,22 @@ class App extends Component {
         //axios request to controller to handle create
         console.log('username: ', this.state.email, 'password: ', this.state.password);
         axios.post('/api/auth', { email:this.state.email, password:this.state.password, type:1 })
-        .then(() => {
-          axios.get('/api/auth', { params: { email:this.state.email, password:this.state.password } })
-        .then((type)=> {
-          console.log(type);
-          this.setState({
-            type: type,
-            auth: "true",
-            user: this.state.email
+          .then(() => {
+            axios.get('/api/auth', { params: { email:this.state.email, password:this.state.password } })
+              .then((type)=> {
+                console.log(type);
+                this.setState({
+                  type: type,
+                  auth: "true",
+                  user: this.state.email
+                });
+              
+              });
           })
-            
-          })
-          console.log('creating');
-        })
+          .catch(() => {
+            alert('User already exists!');
+            console.log('error');
+          });
     } else if (e.target.name === 'logout') {
       console.log('logout frontend logic');
       axios.delete('/api/')
@@ -130,7 +133,7 @@ class App extends Component {
           <Route authed={this.state.auth}
            path="/class" 
            render={props =>  (this.state.auth === "true") ? (
-            <Selectedclass {...props} />
+            <Selectedclass authed={this.state.auth} user={this.state.user} type={this.state.type}/>
           ) : (
             <Redirect
               to={{

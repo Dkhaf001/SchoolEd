@@ -12,7 +12,7 @@ class Banner extends Component {
   render() {
     return (
       <div className="rowbanner">
-          <div className="leftbanner">{this.props.user ? `currently signed in as: ${this.props.user}` : ''}</div>
+          <div className="leftbanner">{this.props.user ? `Current User: ${this.props.user}` : ''}</div>
           {console.log(this.props.user)}
           <div className="middlebanner">
           <Link to="/class" className="linkbutton"> Classes </Link>

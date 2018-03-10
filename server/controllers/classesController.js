@@ -14,7 +14,6 @@ module.exports = {
     }
   },
   fetchAllClasses: async ({ email, type }) => {
-    console.log('type:', typeof type);
     try {
       if (type === '0') { //student
         let student = await Students.findOne({ where: { email: email }});
@@ -26,9 +25,7 @@ module.exports = {
         }
         return classes;
       } else if (type === '1') {
-        console.log('ok we here');
         let teacher = await Teachers.findOne({ where: { email: email } });
-        console.log('found teacher:', teacher.email);
         let classes = await Classes.findAll({ where: { teacher_id: teacher.id } });
         return classes;
       }

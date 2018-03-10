@@ -20567,10 +20567,12 @@ var App = function (_Component) {
 
       if (e.target.name === "signin") {
         console.log('routing to /api/login');
-        _axios2.default.get('/api/auth', { params: { email: this.state.email, password: this.state.password } }).then(function (type) {
-          console.log(type);
+        _axios2.default.get('/api/auth', { params: { email: this.state.email, password: this.state.password } }).then(function (_ref) {
+          var data = _ref.data;
+
+          console.log(data);
           _this2.setState({
-            type: type,
+            type: data,
             auth: "true",
             user: _this2.state.email
           });
@@ -20602,7 +20604,9 @@ var App = function (_Component) {
               user: _this2.state.email
             });
           });
-          console.log('creating');
+        }).catch(function () {
+          alert('User already exists!');
+          console.log('error');
         });
       } else if (e.target.name === 'logout') {
         console.log('logout frontend logic');
@@ -20646,7 +20650,7 @@ var App = function (_Component) {
             _react2.default.createElement(_reactRouterDom.Route, { authed: this.state.auth,
               path: "/class",
               render: function render(props) {
-                return _this3.state.auth === "true" ? _react2.default.createElement(_selectedclass2.default, props) : _react2.default.createElement(_reactRouterDom.Redirect, {
+                return _this3.state.auth === "true" ? _react2.default.createElement(_selectedclass2.default, { authed: _this3.state.auth, user: _this3.state.user, type: _this3.state.type }) : _react2.default.createElement(_reactRouterDom.Redirect, {
                   to: {
                     pathname: "/login"
                   }
@@ -25376,7 +25380,7 @@ var Banner = function (_Component) {
         _react2.default.createElement(
           'div',
           { className: 'leftbanner' },
-          this.props.user ? 'currently signed in as: ' + this.props.user : ''
+          this.props.user ? 'Current User: ' + this.props.user : ''
         ),
         console.log(this.props.user),
         _react2.default.createElement(
@@ -25541,10 +25545,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var SelectedClass = function (_Component) {
   _inherits(SelectedClass, _Component);
 
-  function SelectedClass() {
+  function SelectedClass(props) {
     _classCallCheck(this, SelectedClass);
 
-    return _possibleConstructorReturn(this, (SelectedClass.__proto__ || Object.getPrototypeOf(SelectedClass)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (SelectedClass.__proto__ || Object.getPrototypeOf(SelectedClass)).call(this, props));
   }
 
   _createClass(SelectedClass, [{
@@ -25553,7 +25557,7 @@ var SelectedClass = function (_Component) {
       return _react2.default.createElement(
         'div',
         { className: 'container' },
-        _react2.default.createElement(_sidenav2.default, null),
+        _react2.default.createElement(_sidenav2.default, { authed: this.props.auth, user: this.props.user, type: this.props.type }),
         _react2.default.createElement(
           'div',
           { className: 'row' },
@@ -25669,7 +25673,6 @@ var SelectedStudent = function (_Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(_sidenav2.default, null),
         _react2.default.createElement(
           'div',
           { className: 'container' },
@@ -26437,6 +26440,10 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(16);
 
+var _axios = __webpack_require__(85);
+
+var _axios2 = _interopRequireDefault(_axios);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -26451,12 +26458,41 @@ var Sidenav = function (_Component) {
   function Sidenav(props) {
     _classCallCheck(this, Sidenav);
 
-    return _possibleConstructorReturn(this, (Sidenav.__proto__ || Object.getPrototypeOf(Sidenav)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Sidenav.__proto__ || Object.getPrototypeOf(Sidenav)).call(this, props));
+
+    _this.state = {
+      classes: [],
+      rendering: ''
+    };
+    _this.handleClick = _this.handleClick.bind(_this);
+    return _this;
   }
 
   _createClass(Sidenav, [{
+    key: 'handleClick',
+    value: function handleClick(event) {
+      this.setState({
+        rendering: e.target.value
+      });
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      _axios2.default.get('/api/class', { params: { email: this.props.user, type: this.props.type } }).then(function (_ref) {
+        var data = _ref.data;
+
+        _this2.setState({ classes: data });
+      }).catch(function () {
+        console.log('error');
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
+      var _this3 = this;
+
       return _react2.default.createElement(
         'div',
         { className: 'sidenav' },
@@ -26468,26 +26504,13 @@ var Sidenav = function (_Component) {
         _react2.default.createElement(
           'div',
           { className: 'linkbuttonsidebar' },
-          _react2.default.createElement(
-            'a',
-            { href: '#' },
-            'Biology'
-          ),
-          _react2.default.createElement(
-            'a',
-            { href: '#' },
-            'Chemistry'
-          ),
-          _react2.default.createElement(
-            'a',
-            { href: '#' },
-            'Physics'
-          ),
-          _react2.default.createElement(
-            'a',
-            { href: '#' },
-            'English'
-          )
+          this.state.classes.map(function (aclass, key) {
+            return _react2.default.createElement(
+              'button',
+              { onClick: _this3.handleClick, className: 'linkbutton', style: { width: 110 }, key: key },
+              aclass.name
+            );
+          })
         )
       );
     }

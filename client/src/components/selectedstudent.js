@@ -5,7 +5,7 @@ export default class SelectedStudent extends Component {
   render() {
     return (
       <div>
-        <Sidenav />
+        {/* <Sidenav /> */}
         <div className="container">
           <div className="row">
             <div className="col-md-4 class-tracker-col">
