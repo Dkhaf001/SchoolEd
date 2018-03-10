@@ -40,7 +40,7 @@ class Sidenav extends Component {
     <div className="sidenav">
       <h2> Classes </h2>
       <div className="linkbuttonsidebar">
-      {this.state.classes.map((aclass, key) =>
+      {this.state.classes && this.state.classes.map((aclass, key) =>
          <button onClick={this.handleClick} value={aclass.name} className="linkbutton" style={{width: 110}} key={key}>{aclass.name}</button>
       )}
       </div>

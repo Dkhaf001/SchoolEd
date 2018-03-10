@@ -25789,7 +25789,7 @@ exports = module.exports = __webpack_require__(112)(false);
 
 
 // module
-exports.push([module.i, "body {\n  margin: 0;\n  padding: 0;\n  background-image: url(\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkrAGG3cU6wmlDoJ_-vDeMhseNYr52dJJWzDiXDBxCnBjfMd69\");\n  background-attachment: fixed;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  font-family: sans-serif;\n}\n\n.rowbanner {\n  /* border: solid rgb(11, 22, 241); */\n  /* background-color: #83d8ff; */\n  background-image: url(\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkrAGG3cU6wmlDoJ_-vDeMhseNYr52dJJWzDiXDBxCnBjfMd69\");\n  background-attachment: fixed;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  width: 100%;\n  text-align: center;\n}\n\n.leftbanner {\n  float: top;\n}\n\n.middlebanner{\n  width: 80;\n  text-align: center;\n}\n\n.App{\n  text-align: center;\n}\n.row {\n  padding: 2%;\n}\n\n.login {\n  margin-top: 5%;\n}\n\n.class-tracker-col {\n  height: 80vh;\n  border: black solid 2px;\n}\n\n.selected-class-col {\n  height: 40vh;\n  border: black solid 2px;\n}\n\n.linkbutton {\n  margin-left: 10px;\n  background-color: blue;\n  color: white;\n  padding: 14px 25px;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n}\n\n/* .linkbuttonsidebar { */\n  /* background-color: blue;\n  color: white;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block; */\n/* } */\n\n.sidenav {\n  /* border: solid rgb(11, 22, 241); */\n  /* margin-top: 4.75%; */\n  height: 100%;\n  width: 175px;\n  position: fixed;\n  z-index: 1;\n  top: 0;\n  left: 0;\n  /* background-color: #83d8ff; */\n  background-image: url(\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkrAGG3cU6wmlDoJ_-vDeMhseNYr52dJJWzDiXDBxCnBjfMd69\");\n  overflow-x: hidden;\n  padding-top: 20px;\n}\n\n.sidenav a {\n  padding: 6px 6px 6px 32px;\n  text-decoration: none;\n  font-size: 25px;\n  color: #818181;\n  display: block;\n}\n\n.sidenav a:hover {\n  color: #f1f1f1;\n}\n\n.main {\n  margin-left: 200px; /* Same as the width of the sidenav */\n}", ""]);
+exports.push([module.i, "body {\n  margin: 0;\n  padding: 0;\n  background-image: url(\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkrAGG3cU6wmlDoJ_-vDeMhseNYr52dJJWzDiXDBxCnBjfMd69\");\n  background-attachment: fixed;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  font-family: sans-serif;\n}\n\n.rowbanner {\n  /* border: solid rgb(11, 22, 241); */\n  /* background-color: #83d8ff; */\n  background-image: url(\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkrAGG3cU6wmlDoJ_-vDeMhseNYr52dJJWzDiXDBxCnBjfMd69\");\n  background-attachment: fixed;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  width: 100%;\n  text-align: center;\n}\n\n.leftbanner {\n  float: top;\n}\n\n.middlebanner{\n  width: 80;\n  text-align: center;\n}\n\n.App{\n  text-align: center;\n}\n.row {\n  padding: 2%;\n}\n\n.login {\n  margin-top: 5%;\n}\n\n.class-tracker-col {\n  height: 80vh;\n  border: black solid 2px;\n}\n\n.selected-class-col {\n  height: 40vh;\n  border: black solid 2px;\n}\n\n.linkbutton {\n  height: 50px;\n  width: 110px;\n  margin-left: 10px !important;\n  background-color: blue !important;\n  color: white !important;\n  padding: 14px 25px !important;\n  text-align: center !important;\n  text-decoration: none !important;\n  display: inline-block !important;\n}\n\n/* .linkbuttonsidebar { */\n  /* background-color: blue;\n  color: white;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block; */\n/* } */\n\n.sidenav {\n  /* border: solid rgb(11, 22, 241); */\n  /* margin-top: 4.75%; */\n  height: 100%;\n  width: 175px;\n  position: fixed;\n  z-index: 1;\n  top: 0;\n  left: 0;\n  /* background-color: #83d8ff; */\n  background-image: url(\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkrAGG3cU6wmlDoJ_-vDeMhseNYr52dJJWzDiXDBxCnBjfMd69\");\n  overflow-x: hidden;\n  padding-top: 20px;\n}\n\n.sidenav a {\n  padding: 6px 6px 6px 32px;\n  text-decoration: none;\n  font-size: 25px;\n  color: #818181;\n  display: block;\n}\n\n.sidenav a:hover {\n  color: #f1f1f1;\n}\n\n.main {\n  margin-left: 200px; /* Same as the width of the sidenav */\n}", ""]);
 
 // exports
 
@@ -26438,7 +26438,7 @@ var Sidenav = function (_Component) {
         _react2.default.createElement(
           'div',
           { className: 'linkbuttonsidebar' },
-          this.state.classes.map(function (aclass, key) {
+          this.state.classes && this.state.classes.map(function (aclass, key) {
             return _react2.default.createElement(
               'button',
               { onClick: _this3.handleClick, value: aclass.name, className: 'linkbutton', style: { width: 110 }, key: key },
@@ -26505,14 +26505,14 @@ var LoginLogout = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'linkbutton' },
         this.props.user ? _react2.default.createElement(
-          'button',
-          { className: 'linkbutton', name: 'logout', onClick: this.props.onClick },
+          'a',
+          { name: 'logout', onClick: this.props.onClick },
           ' Logout '
         ) : _react2.default.createElement(
           _reactRouterDom.Link,
-          { to: '/login', className: 'linkbutton' },
+          { to: '/login' },
           ' Login '
         )
       );

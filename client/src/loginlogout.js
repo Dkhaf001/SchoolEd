@@ -12,8 +12,11 @@ class LoginLogout extends Component {
 
    render() {
      return(
-       <div>
-         {this.props.user ? <button className="linkbutton" name="logout" onClick={this.props.onClick}> Logout </button> : <Link to="/login" className="linkbutton"> Login </Link>}
+       <div className="linkbutton">
+         {this.props.user ?
+           <a name="logout" onClick={this.props.onClick}> Logout </a> 
+           : 
+           <Link to="/login"> Login </Link>}
       </div>
      )}
 }
