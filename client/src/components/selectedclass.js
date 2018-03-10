@@ -65,7 +65,7 @@ export default class SelectedClass extends Component {
           {/* {console.log(this.state)} */}
           {this.state.classes && this.state.classes.map((aclass, key) => (
               <div
-                onClick={this.handleClick}
+                // onClick={this.handleClick}
                 value={aclass.name}
                 className="classlist"
                 // style={{ width: 110 }}
@@ -77,7 +77,7 @@ export default class SelectedClass extends Component {
                 {this.state.lectures && this.state.lectures.map((alecture, key) => (
                   
                   <div
-                    onClick={this.handleClick}
+                    // onClick={this.handleClick}
                     value={alecture.name}
                     className="lecturelist"
                     // style={{ width: 110 }}
@@ -88,7 +88,7 @@ export default class SelectedClass extends Component {
                   {'  '}
                   {this.state.topics && this.state.topics.map((atopic, key) => (
                     <div
-                    onClick={this.handleClick}
+                    // onClick={this.handleClick}
                     value={atopic.name}
                     className="topiclist"
                     // style={{ width: 110 }}
