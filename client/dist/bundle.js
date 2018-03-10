@@ -20532,7 +20532,7 @@ var App = function (_Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
 
     _this.state = {
-      auth: "false",
+      auth: false,
       user: ""
     };
 
@@ -20573,7 +20573,7 @@ var App = function (_Component) {
           console.log(data);
           _this2.setState({
             type: data,
-            auth: "true",
+            auth: true,
             user: _this2.state.email
           });
         });
@@ -20586,7 +20586,7 @@ var App = function (_Component) {
             console.log(type);
             _this2.setState({
               type: type,
-              auth: "true",
+              auth: true,
               user: _this2.state.email
             });
           });
@@ -20600,7 +20600,7 @@ var App = function (_Component) {
             console.log(type);
             _this2.setState({
               type: type,
-              auth: "true",
+              auth: true,
               user: _this2.state.email
             });
           });
@@ -20612,7 +20612,7 @@ var App = function (_Component) {
         console.log('logout frontend logic');
         _axios2.default.delete('/api/').then(function () {
           _this2.setState({
-            auth: "false",
+            auth: false,
             user: ""
           });
           console.log('session destroyed');
@@ -20650,7 +20650,7 @@ var App = function (_Component) {
             _react2.default.createElement(_reactRouterDom.Route, { authed: this.state.auth,
               path: "/class",
               render: function render(props) {
-                return _this3.state.auth === "true" ? _react2.default.createElement(_selectedclass2.default, { authed: _this3.state.auth, user: _this3.state.user, type: _this3.state.type }) : _react2.default.createElement(_reactRouterDom.Redirect, {
+                return _this3.state.auth === true ? _react2.default.createElement(_selectedclass2.default, { authed: _this3.state.auth, user: _this3.state.user, type: _this3.state.type }) : _react2.default.createElement(_reactRouterDom.Redirect, {
                   to: {
                     pathname: "/login"
                   }
@@ -20660,7 +20660,7 @@ var App = function (_Component) {
             _react2.default.createElement(_reactRouterDom.Route, { authed: this.state.auth,
               path: "/students",
               render: function render(props) {
-                return _this3.state.auth === "true" ? _react2.default.createElement(_selectedstudent2.default, props) : _react2.default.createElement(_reactRouterDom.Redirect, {
+                return _this3.state.auth === true ? _react2.default.createElement(_selectedstudent2.default, props) : _react2.default.createElement(_reactRouterDom.Redirect, {
                   to: {
                     pathname: "/login"
                   }
@@ -25354,6 +25354,10 @@ var _login = __webpack_require__(42);
 
 var _login2 = _interopRequireDefault(_login);
 
+var _loginlogout = __webpack_require__(116);
+
+var _loginlogout2 = _interopRequireDefault(_loginlogout);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25396,17 +25400,7 @@ var Banner = function (_Component) {
             { to: '/students', className: 'linkbutton' },
             ' Students '
           ),
-          _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: '/login', className: 'linkbutton' },
-            ' Login '
-          ),
-          _react2.default.createElement(
-            'button',
-            { className: 'linkbutton', name: 'logout', onClick: this.props.onClick },
-            ' Logout '
-          ),
-          console.log(this.props)
+          _react2.default.createElement(_loginlogout2.default, { onClick: this.props.onClick, authed: this.props.auth, user: this.props.user, type: this.props.type })
         )
       );
     }
@@ -25557,69 +25551,7 @@ var SelectedClass = function (_Component) {
       return _react2.default.createElement(
         'div',
         { className: 'container' },
-        _react2.default.createElement(_sidenav2.default, { authed: this.props.auth, user: this.props.user, type: this.props.type }),
-        _react2.default.createElement(
-          'div',
-          { className: 'row' },
-          _react2.default.createElement(
-            'div',
-            { className: 'col-md-4 selected-class-col' },
-            _react2.default.createElement(
-              'h2',
-              null,
-              'Topic'
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'col-md-4 selected-class-col' },
-            _react2.default.createElement(
-              'h2',
-              null,
-              'Topic'
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'col-md-4 selected-class-col' },
-            _react2.default.createElement(
-              'h2',
-              null,
-              'Topic'
-            )
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'row' },
-          _react2.default.createElement(
-            'div',
-            { className: 'col-md-4 selected-class-col' },
-            _react2.default.createElement(
-              'h2',
-              null,
-              'Topic'
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'col-md-4 selected-class-col' },
-            _react2.default.createElement(
-              'h2',
-              null,
-              'Topic'
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'col-md-4 selected-class-col' },
-            _react2.default.createElement(
-              'h2',
-              null,
-              'Topic'
-            )
-          )
-        )
+        _react2.default.createElement(_sidenav2.default, { authed: this.props.auth, user: this.props.user, type: this.props.type })
       );
     }
   }]);
@@ -26527,6 +26459,70 @@ exports.default = Sidenav;
 //   <h2>View Here</h2>
 
 // </div>
+
+/***/ }),
+/* 116 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(16);
+
+var _login = __webpack_require__(42);
+
+var _login2 = _interopRequireDefault(_login);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var LoginLogout = function (_Component) {
+  _inherits(LoginLogout, _Component);
+
+  function LoginLogout(props) {
+    _classCallCheck(this, LoginLogout);
+
+    return _possibleConstructorReturn(this, (LoginLogout.__proto__ || Object.getPrototypeOf(LoginLogout)).call(this, props));
+  }
+
+  _createClass(LoginLogout, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        this.props.user ? _react2.default.createElement(
+          'button',
+          { className: 'linkbutton', name: 'logout', onClick: this.props.onClick },
+          ' Logout '
+        ) : _react2.default.createElement(
+          _reactRouterDom.Link,
+          { to: '/login', className: 'linkbutton' },
+          ' Login '
+        )
+      );
+    }
+  }]);
+
+  return LoginLogout;
+}(_react.Component);
+
+exports.default = LoginLogout;
 
 /***/ })
 /******/ ]);

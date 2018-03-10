@@ -11,29 +11,6 @@ export default class SelectedClass extends Component {
     return (
       <div className="container">
       <Sidenav authed={this.props.auth} user={this.props.user} type={this.props.type} />
-        <div className="row">
-          <div className="col-md-4 selected-class-col">
-            <h2>Topic</h2>
-          </div>
-          <div className="col-md-4 selected-class-col">
-            <h2>Topic</h2>
-          </div>
-          <div className="col-md-4 selected-class-col">
-            <h2>Topic</h2>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-md-4 selected-class-col">
-            <h2>Topic</h2>
-          </div>
-          <div className="col-md-4 selected-class-col">
-            <h2>Topic</h2>
-          </div>
-          <div className="col-md-4 selected-class-col">
-            <h2>Topic</h2>
-          </div>
-        </div>
       </div>
     );
   }

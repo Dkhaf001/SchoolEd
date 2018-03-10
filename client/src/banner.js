@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Login from './components/login.js';
-
+import LoginLogout from './loginlogout.js';
 
 
 class Banner extends Component {
@@ -17,9 +17,9 @@ class Banner extends Component {
           <div className="middlebanner">
           <Link to="/class" className="linkbutton"> Classes </Link>
           <Link to="/students" className="linkbutton"> Students </Link>
-          <Link to="/login" className="linkbutton"> Login </Link>
-          <button className="linkbutton" name="logout" onClick={this.props.onClick}> Logout </button>
-          {console.log(this.props)}
+          <LoginLogout onClick={this.props.onClick} authed={this.props.auth} user={this.props.user} type={this.props.type} />
+          {/* <Link to="/login" className="linkbutton"> Login </Link>
+          <button className="linkbutton" name="logout" onClick={this.props.onClick}> Logout </button> */}
           </div>
           
       

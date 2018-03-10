@@ -16,7 +16,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      auth: "false",
+      auth: false,
       user: ""
     };
 
@@ -53,7 +53,7 @@ class App extends Component {
           console.log(data);
           this.setState({
             type: data,
-            auth: "true",
+            auth: true,
             user: this.state.email
           })
         })
@@ -68,7 +68,7 @@ class App extends Component {
           console.log(type);
           this.setState({
             type: type,
-            auth: "true",
+            auth: true,
             user: this.state.email
           })
         })
@@ -84,7 +84,7 @@ class App extends Component {
                 console.log(type);
                 this.setState({
                   type: type,
-                  auth: "true",
+                  auth: true,
                   user: this.state.email
                 });
               
@@ -99,7 +99,7 @@ class App extends Component {
       axios.delete('/api/')
       .then(() => {
         this.setState({
-          auth: "false",
+          auth: false,
           user: ""
         })
         console.log('session destroyed');
@@ -132,7 +132,7 @@ class App extends Component {
           />
           <Route authed={this.state.auth}
            path="/class" 
-           render={props =>  (this.state.auth === "true") ? (
+           render={props =>  (this.state.auth === true) ? (
             <Selectedclass authed={this.state.auth} user={this.state.user} type={this.state.type}/>
           ) : (
             <Redirect
@@ -145,7 +145,7 @@ class App extends Component {
       />
           <Route authed={this.state.auth}
            path="/students" 
-           render={props =>  (this.state.auth === "true") ? (
+           render={props =>  (this.state.auth === true) ? (
             <Selectedstudent {...props} />
           ) : (
             <Redirect
