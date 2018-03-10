@@ -22,7 +22,7 @@ export default class SelectedClass extends Component {
     console.log(this.state);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     axios.get("/api/class", {
         params: { email: this.props.user, type: this.props.type }
       })
@@ -32,21 +32,23 @@ export default class SelectedClass extends Component {
           axios.get("/api/lecture", { params: { class_id: classes.data[i].id } })
           .then(lectures => {
             lectureList.push(lectures.data);
-            // console.log("lectures.datat :", lectures.data);
-            // console.log("lectureList :", lectureList);
-              let topics = [];
+            console.log('lecturelist ',lectureList)
+              let topicsList = [];
               for (let j = 0; j < lectureList.length; j++) {
                 axios.get("/api/topic", {
-                    params: { lecture_id: lectureList[i].id }
+                    params: { lecture_id: lectureList[j].id }
                   })
                   .then(topics => {
-                    this.setState({
-                      classes: classes.data,
-                      lectures: lectures.data,
-                      topics: topics.data
-                    });
+                    topicsList.push(topics);
                   });
-              }console.log(this.state);
+                      this.setState({
+                        classes: classes.data,
+                        lectures: lectureList,
+                        topics: topicsList
+                      });
+              }
+              console.log(this.state);
+              
             });
         }
       })
@@ -60,7 +62,7 @@ export default class SelectedClass extends Component {
       <div>
         <h1 className="topmargin">Class List</h1>
         <div className="classlist">
-          {console.log(this.state)}
+          {/* {console.log(this.state)} */}
           {this.state.classes && this.state.classes.map((aclass, key) => (
               <div
                 onClick={this.handleClick}
@@ -71,7 +73,9 @@ export default class SelectedClass extends Component {
               >
                 {aclass.name}
                 {'  '}
+                {console.log(this.state.lectures)}
                 {this.state.lectures && this.state.lectures.map((alecture, key) => (
+                  
                   <div
                     onClick={this.handleClick}
                     value={alecture.name}
@@ -79,7 +83,8 @@ export default class SelectedClass extends Component {
                     style={{ width: 110 }}
                     key={key}
                   >
-                  {alecture.name}
+                  
+                  {alecture[0].class_id === aclass.id ? alecture[0].name : null}
                   {'  '}
                   {this.state.topics && this.state.topics.map((atopic, key) => (
                     <div

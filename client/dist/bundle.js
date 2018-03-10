@@ -25743,37 +25743,33 @@ var SelectedClass = function (_Component) {
       console.log(this.state);
     }
   }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
+    key: "componentWillMount",
+    value: function componentWillMount() {
       var _this2 = this;
 
       _axios2.default.get("/api/class", {
         params: { email: this.props.user, type: this.props.type }
       }).then(function (classes) {
         var lectureList = [];
-
-        var _loop = function _loop(i) {
+        for (var i = 0; i < classes.data.length; i++) {
           _axios2.default.get("/api/lecture", { params: { class_id: classes.data[i].id } }).then(function (lectures) {
             lectureList.push(lectures.data);
-            // console.log("lectures.datat :", lectures.data);
-            // console.log("lectureList :", lectureList);
-            var topics = [];
+            console.log('lecturelist ', lectureList);
+            var topicsList = [];
             for (var j = 0; j < lectureList.length; j++) {
               _axios2.default.get("/api/topic", {
-                params: { lecture_id: lectureList[i].id }
+                params: { lecture_id: lectureList[j].id }
               }).then(function (topics) {
-                _this2.setState({
-                  classes: classes.data,
-                  lectures: lectures.data,
-                  topics: topics.data
-                });
+                topicsList.push(topics);
               });
-            }console.log(_this2.state);
+              _this2.setState({
+                classes: classes.data,
+                lectures: lectureList,
+                topics: topicsList
+              });
+            }
+            console.log(_this2.state);
           });
-        };
-
-        for (var i = 0; i < classes.data.length; i++) {
-          _loop(i);
         }
       }).catch(function () {
         console.log("error");
@@ -25795,7 +25791,6 @@ var SelectedClass = function (_Component) {
         _react2.default.createElement(
           "div",
           { className: "classlist" },
-          console.log(this.state),
           this.state.classes && this.state.classes.map(function (aclass, key) {
             return _react2.default.createElement(
               "div",
@@ -25808,6 +25803,7 @@ var SelectedClass = function (_Component) {
               },
               aclass.name,
               '  ',
+              console.log(_this3.state.lectures),
               _this3.state.lectures && _this3.state.lectures.map(function (alecture, key) {
                 return _react2.default.createElement(
                   "div",
@@ -25818,7 +25814,7 @@ var SelectedClass = function (_Component) {
                     style: { width: 110 },
                     key: key
                   },
-                  alecture.name,
+                  alecture[0].class_id === aclass.id ? alecture[0].name : null,
                   '  ',
                   _this3.state.topics && _this3.state.topics.map(function (atopic, key) {
                     return _react2.default.createElement(
